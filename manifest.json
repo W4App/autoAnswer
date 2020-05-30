@@ -1,0 +1,15 @@
+{
+   "background": {
+      "scripts": [ "bg.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "mycs.js" ],
+      "matches": [ "http://*/", "https://*/", "http://localhost:63342/*", "http://10.109.223.7:216/*" ]
+   } ],
+   "description": "Gets information from special page.",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtdjjvQuwy5FtrIUls8IWgf+wAD9Rz5Vq11dOrnh4DJH+hGNhlQgJD1CugePqX/aThMi73kLURTEqlQ8DZxjNc/bCf/eNYmrkI+9CB0g1dTokWQNGXBPwms2u1S0T8QS+5MGd+ztIEvh/xQbCai2z5n0NoskYWNSUIZcMysMnxLJCVe9cgt912amysFMZglOOLOLwbmFYpv6wz30Asnefxx2/5khoHRoe+5CQdo8erWP5PkvTOEgwWzm6yHYc7br01LoksPcJ9poQGuAPJf+kl7lihM8o59JmzIjyRWR5Tzp8HUzLdHMmTr4TOCKJGXwEhYfbIwuJbdrEXDcGsBPs1QIDAQAB",
+   "manifest_version": 2,
+   "name": "Chrome Extension for exam",
+   "permissions": [ "\u003Call_urls>", "storage", "tabs", "unlimitedStorage" ],
+   "version": "0.1"
+}

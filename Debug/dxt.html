@@ -1,0 +1,1209 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>2017年反恐怖知识培训考试|安电职教在线考试系统 V4.4.17</title>
+    <meta name="keywords" content="站段最好的在线考试系统" />
+    <meta name="description" content="站段最好的在线考试系统" />
+    <meta name="generator" content="安电职教(10.109.223.7:216)">
+    <link href="/exam/logo/favicon.ico" type="image/x-icon" rel="icon">
+    <link href="/exam/logo/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link type="text/css" rel="stylesheet" href="/exam/statics/css/famous-exam.css">
+    <link type="text/css" rel="stylesheet" href="/exam/statics/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/exam/statics/css/exam.css">
+    <script type="text/javascript" src="/plugins/jquery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/plugins/jquery-ui/js/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="/plugins/jform/jquery.form.js"></script>
+    <script type="text/javascript" src="/plugins/popup/popup.js"></script>
+    <script type="text/javascript" src="/plugins/nicescroll/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="/exam/statics/js/exam.js"></script>
+    <script type="text/javascript" src="/exam/statics/js/video.js"></script>
+    <script type="text/javascript">
+        if (window.Event)
+            function nocontextmenu(e) {
+                var ev = e ? e : window.event;
+                ev.cancelBubble = true
+                ev.returnValue = false;
+                if (ev.preventDefault) {
+                    ev.preventDefault();
+                }
+                if (ev.stopPropagation) {
+                    ev.stopPropagation();
+                }
+                return false;
+            }
+        function nocopy(e) {
+            var ev = e ? e : window.event;
+            ev.cancelBubble = true
+            ev.returnValue = false;
+            if (ev.preventDefault) {
+                ev.preventDefault();
+            }
+            if (ev.stopPropagation) {
+                ev.stopPropagation();
+            }
+            return false;
+        }
+        function norightclick(e) {
+            if (window.Event) {
+                if (e.which == 2 || e.which == 3)
+                    return false;
+            }
+            else
+            if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true;
+                event.returnvalue = false;
+                return false;
+            }
+        }
+        document.oncontextmenu = nocontextmenu; // for IE5+
+        document.oncopy = nocopy;
+        document.onkeydown = function (event) //shield F5  //shift+F10 ctrl+R
+        {
+            event = event ? event : (window.event ? window.event : null); // ie firefox
+            if (event.keyCode == 116 || (event.shiftKey && event.keyCode == 121) || (event.ctrlKey && event.keyCode == 82)) {
+                event.keyCode = 0;
+                event.cancelBubble = true;
+                event.returnValue = false;
+                if (event && event.preventDefault)
+                    event.preventDefault();
+                else
+                    window.event.returnValue = false;
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var selectId = null;
+        function toSubject(id) {
+            if (null != selectId) {
+                $("#question_" + selectId).hide();
+                $("#q_" + selectId).removeClass("border_bg");
+            }
+            selectId = id;
+            $("#question_" + selectId).show();
+            $("#q_" + selectId).addClass("border_bg");
+            if ($("#q_" + selectId).hasClass("red_bg")) {
+                $("#standingby").removeClass("Undetermined");
+                $("#standingby").addClass("Undetermined-gray");
+            } else {
+                $("#standingby").addClass("Undetermined");
+                $("#standingby").removeClass("Undetermined-gray");
+            }
+        }
+        function subject_menu_hide(o, sbid) {
+            if ($('#' + sbid).css("display") == "block") {
+                $('#' + sbid).css("display", "none");
+                $(o).addClass("showorhidelist");
+            } else {
+                $('#' + sbid).css("display", "block");
+                $(o).removeClass("showorhidelist");
+            }
+        }
+        function pre_click() {
+            var num = $("#examTopicWrapId").find("li").index($("#q_" + selectId));
+            if (num > 0) {
+                $("#examTopicWrapId").find("li:eq(" + (parseInt(num) - 1) + ")").trigger("click");
+            }
+        }
+        function next_click() {
+            var num = $("#examTopicWrapId").find("li").index($("#q_" + selectId));
+            $("#examTopicWrapId").find("li:eq(" + (parseInt(num) + 1) + ")").trigger("click");
+        }
+        function pause_click() {
+            if ($("#q_" + selectId).hasClass("red_bg")) {
+                $("#q_" + selectId).removeClass("red_bg");
+                $("#standingby").addClass("Undetermined");
+                $("#standingby").removeClass("Undetermined-gray");
+            } else {
+                $("#q_" + selectId).addClass("red_bg");
+                $("#standingby").removeClass("Undetermined");
+                $("#standingby").addClass("Undetermined-gray");
+            }
+        }
+    </script>
+</head>
+<body>
+<noscript>
+    <iframe src="*"></iframe>
+</noscript>
+<form id="testProcessForm" name="testProcessForm" action="exampost.aspx" method="post">
+    <input type="hidden" id="resultid" name="resultid" value="24979">
+    <input type="hidden" id="starttime" value="2017-06-07 18:15:36">
+    <input type="hidden" id="utime" name="utime" value="0">
+    <input type="hidden" id="autotime" value="2">
+    <input type="hidden" id="examtime" value="60">
+    <input type="hidden" id="isexam" value="1">
+    <input type="hidden" id="isvideo" value="1">
+    <div class="pure-g exam clf">
+        <div class="pure-u-1-5" id="examleftbar" style="min-height:553px;">
+            <div class="topic_choose" id="topic_video">
+                <div id="getphoto_state" style="color:white;position:absolute;top:10px;left:20px;"></div>
+                <canvas id="getphoto_canvas" style="display:none;" width="250" height="230"></canvas>
+                <video id="getphoto_video" width="250" height="230" style="background-color:black" autoplay="autoplay"></video>
+            </div>
+            <div class="topic_choose" id="topic_choose">
+                <div class="ChooseStyle">答题卡，总分：<span class="examtime">100分</span></div>
+                <div class="topic" id="examTopicWrapId">
+                    <div class="TopicType">
+                        <h3 title="第一题、单选题，(共20题，每题2分，共40分)">第一题、单选题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_1')">&nbsp;</span></h3>
+                        <ul id="subject_menu_1">
+                            <li id="q_98690_1" onclick="toSubject('98690_1')">1</li>
+                            <li id="q_98690_2" onclick="toSubject('98690_2')">2</li>
+                            <li id="q_98690_3" onclick="toSubject('98690_3')">3</li>
+                            <li id="q_98690_4" onclick="toSubject('98690_4')">4</li>
+                            <li id="q_98690_5" onclick="toSubject('98690_5')">5</li>
+                            <li id="q_98690_6" onclick="toSubject('98690_6')">6</li>
+                            <li id="q_98690_7" onclick="toSubject('98690_7')">7</li>
+                            <li id="q_98690_8" onclick="toSubject('98690_8')">8</li>
+                            <li id="q_98690_9" onclick="toSubject('98690_9')">9</li>
+                            <li id="q_98690_10" onclick="toSubject('98690_10')">10</li>
+                            <li id="q_98690_11" onclick="toSubject('98690_11')">11</li>
+                            <li id="q_98690_12" onclick="toSubject('98690_12')">12</li>
+                            <li id="q_98690_13" onclick="toSubject('98690_13')">13</li>
+                            <li id="q_98690_14" onclick="toSubject('98690_14')">14</li>
+                            <li id="q_98690_15" onclick="toSubject('98690_15')">15</li>
+                            <li id="q_98690_16" onclick="toSubject('98690_16')">16</li>
+                            <li id="q_98690_17" onclick="toSubject('98690_17')">17</li>
+                            <li id="q_98690_18" onclick="toSubject('98690_18')">18</li>
+                            <li id="q_98690_19" onclick="toSubject('98690_19')">19</li>
+                            <li id="q_98690_20" onclick="toSubject('98690_20')">20</li>
+                        </ul>
+                    </div>
+                    <div class="TopicType">
+                        <h3 title="第二题、多选题，(共10题，每题2分，共20分)">第二题、多选题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_2')">&nbsp;</span></h3>
+                        <ul id="subject_menu_2">
+                            <li id="q_98691_1" onclick="toSubject('98691_1')">1</li>
+                            <li id="q_98691_2" onclick="toSubject('98691_2')">2</li>
+                            <li id="q_98691_3" onclick="toSubject('98691_3')">3</li>
+                            <li id="q_98691_4" onclick="toSubject('98691_4')">4</li>
+                            <li id="q_98691_5" onclick="toSubject('98691_5')">5</li>
+                            <li id="q_98691_6" onclick="toSubject('98691_6')">6</li>
+                            <li id="q_98691_7" onclick="toSubject('98691_7')">7</li>
+                            <li id="q_98691_8" onclick="toSubject('98691_8')">8</li>
+                            <li id="q_98691_9" onclick="toSubject('98691_9')">9</li>
+                            <li id="q_98691_10" onclick="toSubject('98691_10')">10</li>
+                        </ul>
+                    </div>
+                    <div class="TopicType">
+                        <h3 title="第三题、判断题，(共20题，每题2分，共40分)">第三题、判断题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_3')">&nbsp;</span></h3>
+                        <ul id="subject_menu_3">
+                            <li id="q_98692_1" onclick="toSubject('98692_1')">1</li>
+                            <li id="q_98692_2" onclick="toSubject('98692_2')">2</li>
+                            <li id="q_98692_3" onclick="toSubject('98692_3')">3</li>
+                            <li id="q_98692_4" onclick="toSubject('98692_4')">4</li>
+                            <li id="q_98692_5" onclick="toSubject('98692_5')">5</li>
+                            <li id="q_98692_6" onclick="toSubject('98692_6')">6</li>
+                            <li id="q_98692_7" onclick="toSubject('98692_7')">7</li>
+                            <li id="q_98692_8" onclick="toSubject('98692_8')">8</li>
+                            <li id="q_98692_9" onclick="toSubject('98692_9')">9</li>
+                            <li id="q_98692_10" onclick="toSubject('98692_10')">10</li>
+                            <li id="q_98692_11" onclick="toSubject('98692_11')">11</li>
+                            <li id="q_98692_12" onclick="toSubject('98692_12')">12</li>
+                            <li id="q_98692_13" onclick="toSubject('98692_13')">13</li>
+                            <li id="q_98692_14" onclick="toSubject('98692_14')">14</li>
+                            <li id="q_98692_15" onclick="toSubject('98692_15')">15</li>
+                            <li id="q_98692_16" onclick="toSubject('98692_16')">16</li>
+                            <li id="q_98692_17" onclick="toSubject('98692_17')">17</li>
+                            <li id="q_98692_18" onclick="toSubject('98692_18')">18</li>
+                            <li id="q_98692_19" onclick="toSubject('98692_19')">19</li>
+                            <li id="q_98692_20" onclick="toSubject('98692_20')">20</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ChooseStyle"><img src="/exam/statics/images/tis.png" style="width:146px;height:11px;"></div>
+            </div>
+        </div>
+        <div class="pure-u-4-5" id="examContent" style="min-height:553px;">
+            <div class="pure-u-1" style="height:90px;">
+                <div class="exam-top clf">
+                    <div class="user-info-b ta-l">
+                        <div class="examinee_photo bg_img"><img src="/common/images/none.gif" id="userAvatar" class="userAvatar"></div>
+                        <div class="exam_message" id="exam_message">
+                            <div><b>考试名称：</b>2017年反恐怖知识培训考试</div>
+                            <div><b>考生姓名：</b>官飞(官飞)</div>
+                            <div><b>身份证号：</b></div>
+                            <div><b>所在部门：</b>安康信号工区</div>
+                        </div>
+                    </div>
+                    <div class="exam_timer">剩余时间：<span id="thetime">00:52:00</span></div>
+                    <div class="menu">
+                        <div class="menutop clf">
+                            <div class="fl" id="submitexam"> <a class="bg_img round_btn upload_btn" onclick="submitExam();return false;"></a>
+                                <p>我要交卷</p>
+                            </div>
+                            <div class="fl" id="submitsave"> <a class="bg_img round_btn upload_btn" onclick="extemporeSave()"></a>
+                                <p>保存答案</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work_area" id="mainQuestionsId" style="min-height:553px;">
+                <div class="topic_show" id="examTopicShow" style="min-height: 500px;">
+                    <input type="hidden" id="qidlist_98690" name="qidlist_98690" value="10093,10105,10103,10088,10100,10115,10113,10097,10110,10108,10085,10083,10099,10118,10095,10112,10090,10082,10111,10121">
+                    <div id="topic_98690" class="tit1 pd1" style="display:none;">第一题、单选题<span class="ft3">(共20题，每题2分，共40分)</span></div>
+                    <dl id="question_98690_1" class="st" style="">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>避免或减少病原体、毒物或放射性灰尘侵袭吸入旅客较适宜的方法是（    ）</p>
+                        </dt>
+                        <dd>
+                            A.找到生物、化学及核与辐射源<br/>B.利用环境设施和随身携带物品，遮掩口鼻和身体撤离至上风向安全地带<br/>C.协作工作人员进行疏散<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_1"
+                                name="answer_10093" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_1"
+                                checked="checked"
+                                name="answer_10093" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_1"
+                                name="answer_10093" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_2" class="st" style="">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>防护避险应（    ）</p>
+                        </dt>
+                        <dd>
+                            A.抓住牢靠的东西人流有序前进，预防发生踩踏<br/>B.聚集人群疏散<br/>C.靠近窗户玻璃<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_2"
+                                checked="checked"
+                                name="answer_10105" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_2"
+                                name="answer_10105" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_2"
+                                name="answer_10105" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_3" class="st" style="">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>水源遭投毒应立即（    ）</p>
+                        </dt>
+                        <dd>
+                            A.立即报警<br/>B.开展调查<br/>C.立即报警、停止供水<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_3"
+                                name="answer_10103" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_3"
+                                name="answer_10103" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_3"
+                                checked="checked"
+                                name="answer_10103" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_4" class="st" style="">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>下列（    ）是恐怖事件</p>
+                        </dt>
+                        <dd>
+                            A.打架斗殴<br/>B.邮件加带有传播的病毒（如：炭疽病毒）<br/>C.职工诉求上访<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_4"
+                                name="answer_10088" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_4"
+                                checked="checked"
+                                name="answer_10088" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_4"
+                                name="answer_10088" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_5" class="st" style="">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>遇持枪袭击时来不及撤离的人员应（    ）</p>
+                        </dt>
+                        <dd>
+                            A.现场乱跑<br/>B.隐蔽或趴下、蹲下<br/>C.原地不动<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_5"
+                                name="answer_10100" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_5"
+                                checked="checked"
+                                name="answer_10100" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_5"
+                                name="answer_10100" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_6" class="st" style="">
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>下列哪些是涉恐涉爆范围（    ）。</p>
+                        </dt>
+                        <dd>
+                            A.宗教极端宣传品<br/>B.交通工具<br/>C.学生集会<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_6"
+                                checked="checked"
+                                name="answer_10115" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_6"
+                                name="answer_10115" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_6"
+                                name="answer_10115" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_7" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>微生物恐怖袭击后（    ）小时或毒素恐怖袭击几分钟至几小时，出现规模性的人员伤亡。</p>
+                        </dt>
+                        <dd>
+                            A.48—72小时<br/>B.72小时<br/>C.48小时<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_7"
+                                checked="checked"
+                                name="answer_10113" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_7"
+                                name="answer_10113" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_7"
+                                name="answer_10113" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_8" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>铁路从业人员反恐怖宣传培训手册共分（    ）章</p>
+                        </dt>
+                        <dd>
+                            A.4<br/>B.5<br/>C.3<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_8"
+                                name="answer_10097" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_8"
+                                checked="checked"
+                                name="answer_10097" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_8"
+                                name="answer_10097" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_9" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">9</span>
+                        <p>线路上发现可疑爆炸物品应立即（    ）</p>
+                        </dt>
+                        <dd>
+                            A.汇报领导<br/>B.通过手信号或其他方式将开来的列车拦停在安全距离以外<br/>C.报警<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_9"
+                                name="answer_10110" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_9"
+                                checked="checked"
+                                name="answer_10110" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_9"
+                                name="answer_10110" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_10" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">10</span>
+                        <p>心脏按压与人工通气比率为（    ）</p>
+                        </dt>
+                        <dd>
+                            A.30:1<br/>B.30:5<br/>C.30:2<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_10"
+                                checked="checked"
+                                name="answer_10108" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_10"
+                                name="answer_10108" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_10"
+                                name="answer_10108" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_11" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">11</span>
+                        <p>涉恐嫌疑人表现为（    ）</p>
+                        </dt>
+                        <dd>
+                            A.非法收听、收看境外宗教广播电视节目<br/>B.淘宝购买境外奶粉<br/>C.收听、收看国家指定的广播电视节目<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_11"
+                                checked="checked"
+                                name="answer_10085" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_11"
+                                name="answer_10085" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_11"
+                                name="answer_10085" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_12" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">12</span>
+                        <p>（    ）是涉恐可疑物品</p>
+                        </dt>
+                        <dd>
+                            A.格斗训练器材<br/>B.国家发行的报刊杂志<br/>C.学习笔记本电脑<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_12"
+                                checked="checked"
+                                name="answer_10083" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_12"
+                                name="answer_10083" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_12"
+                                name="answer_10083" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_13" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">13</span>
+                        <p>发现可疑人员要在第一时间向（    ）报告情况</p>
+                        </dt>
+                        <dd>
+                            A.段指挥中心、武保科、公安<br/>B.段安全指挥中心<br/>C.段领导<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_13"
+                                checked="checked"
+                                name="answer_10099" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_13"
+                                name="answer_10099" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_13"
+                                name="answer_10099" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_14" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">14</span>
+                        <p>遇到纵火恐怖适宜方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.留恋、不放弃贵重财物<br/>B.不要乱开门窗<br/>C.大声呼救<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_14"
+                                name="answer_10118" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_14"
+                                checked="checked"
+                                name="answer_10118" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_14"
+                                name="answer_10118" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_15" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">15</span>
+                        <p>列车制动后疏散旅客应（    ）</p>
+                        </dt>
+                        <dd>
+                            A.向线路中间疏散<br/>B.利用车厢前后门或车窗紧急有序逃生，扣停邻线列车后向线路中间疏散，<br/>C.拉门、砸窗、跳车。<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_15"
+                                name="answer_10095" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_15"
+                                checked="checked"
+                                name="answer_10095" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_15"
+                                name="answer_10095" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_16" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">16</span>
+                        <p>违禁管制物品有（    ）</p>
+                        </dt>
+                        <dd>
+                            A.食用油类<br/>B.儿童玩具枪<br/>C.枪支子弹、爆炸物品<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_16"
+                                name="answer_10112" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_16"
+                                name="answer_10112" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_16"
+                                checked="checked"
+                                name="answer_10112" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_17" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">17</span>
+                        <p>下面属恐怖活动行为的是（    ）</p>
+                        </dt>
+                        <dd>
+                            A.持有物品宣传海报<br/>B.持有股票<br/>C.非法持有恐怖主义的物品、服饰、标志<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_17"
+                                name="answer_10090" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_17"
+                                name="answer_10090" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_17"
+                                checked="checked"
+                                name="answer_10090" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_18" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">18</span>
+                        <p>遇到化学恐怖袭击报警拨打（    ）。</p>
+                        </dt>
+                        <dd>
+                            A.120<br/>B.119<br/>C.110<br/>D.119、110、120<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_18"
+                                name="answer_10082" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_18"
+                                name="answer_10082" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_18"
+                                name="answer_10082" value="C">C</label>
+                  <label><input type="radio" id="answer_98690_18"
+                                checked="checked"
+                                name="answer_10082" value="D">D</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_19" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">19</span>
+                        <p>遇到恐怖袭击有人员伤亡应拨打（    ）</p>
+                        </dt>
+                        <dd>
+                            A.110、120<br/>B.120<br/>C.110<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_19"
+                                checked="checked"
+                                name="answer_10111" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_19"
+                                name="answer_10111" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_19"
+                                name="answer_10111" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98690_20" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">20</span>
+                        <p>遇到枪击报警应拨打（    ）。</p>
+                        </dt>
+                        <dd>
+                            A.119<br/>B.110<br/>C.120<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                  <label><input type="radio" id="answer_98690_20"
+                                name="answer_10121" value="A">A</label>
+                  <label><input type="radio" id="answer_98690_20"
+                                checked="checked"
+                                name="answer_10121" value="B">B</label>
+                  <label><input type="radio" id="answer_98690_20"
+                                name="answer_10121" value="C">C</label>
+                  </span>
+                        </dd>
+                    </dl>
+                    <input type="hidden" id="qidlist_98691" name="qidlist_98691" value="10020,10017,10012,10023,10014,10028,10037,10019,10025,10031">
+                    <div id="topic_98691" class="tit1 pd1" style="display:none;">第二题、多选题<span class="ft3">(共10题，每题2分，共20分)</span></div>
+                    <dl id="question_98691_1" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>应对发生在火车站的生物、化学及核与辐射袭击使用的方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.躲蔽自防<br/>B.救治伤员<br/>C.判明情况<br/>D.配合警戒、协助善后<br/>E.报警报告<br/>F.紧急疏散<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="E">E</label>
+                    <label><input type="checkbox" id="answer_98691_1"
+                                  checked="checked"
+                                  name="answer_10020" value="F">F</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_2" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>烧伤急救正确方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.不要刺破水泡<br/>B.用干净、无黏性的布盖住伤口<br/>C.轻轻除下戒指、手表、皮带或者紧身衣服<br/>D.用大量洁净的水清洗伤口<br/>E.直接用冰敷在伤口上<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_2"
+                                  checked="checked"
+                                  name="answer_10017" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_2"
+                                  checked="checked"
+                                  name="answer_10017" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_2"
+                                  checked="checked"
+                                  name="answer_10017" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_2"
+                                  checked="checked"
+                                  name="answer_10017" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_2"
+                                  name="answer_10017" value="E">E</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_3" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>安抚受伤人员的方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.捐助财物<br/>B.配合救治<br/>C.记录情况<br/>D.专业疏导<br/>E.提供帮助<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_3"
+                                  name="answer_10012" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_3"
+                                  checked="checked"
+                                  name="answer_10012" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_3"
+                                  name="answer_10012" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_3"
+                                  checked="checked"
+                                  name="answer_10012" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_3"
+                                  checked="checked"
+                                  name="answer_10012" value="E">E</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_4" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>在火车站发生的纵火焚烧袭击应对方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.制止点燃<br/>B.紧急疏散<br/>C.救治伤员<br/>D.控制事态<br/>E.协助调查<br/>F.自防报警<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="E">E</label>
+                    <label><input type="checkbox" id="answer_98691_4"
+                                  checked="checked"
+                                  name="answer_10023" value="F">F</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_5" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>心肺复苏采用的方法是（    ）</p>
+                        </dt>
+                        <dd>
+                            A.二按<br/>B.一拍<br/>C.四推拉<br/>D.三呼救<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_5"
+                                  checked="checked"
+                                  name="answer_10014" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_5"
+                                  checked="checked"
+                                  name="answer_10014" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_5"
+                                  name="answer_10014" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_5"
+                                  checked="checked"
+                                  name="answer_10014" value="D">D</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_6" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>发现可疑人员隐蔽引导疏散周边人员方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.围起栅栏<br/>B.隐蔽启动<br/>C.疏散民众<br/>D.隔离可疑人<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_6"
+                                  name="answer_10028" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_6"
+                                  checked="checked"
+                                  name="answer_10028" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_6"
+                                  checked="checked"
+                                  name="answer_10028" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_6"
+                                  checked="checked"
+                                  name="answer_10028" value="D">D</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_7" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>涉恐嫌疑人通常有（    ）表现</p>
+                        </dt>
+                        <dd>
+                            A.存有疑似宗教极端和暴力恐怖内容的书籍、音像制品的。<br/>B.不愿提供本人身份证件、冒用他人身份证件<br/>C.未经批准在宗教活动场所以外的公共场所（室内或户外）聚众进行礼拜，且有人领拜<br/>D.随身携带或住房屋内悬挂、张贴“圣战”旗帜、标识的<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_7"
+                                  checked="checked"
+                                  name="answer_10037" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_7"
+                                  checked="checked"
+                                  name="answer_10037" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_7"
+                                  checked="checked"
+                                  name="answer_10037" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_7"
+                                  checked="checked"
+                                  name="answer_10037" value="D">D</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_8" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>紧急撤离危险现场应注意（    ）</p>
+                        </dt>
+                        <dd>
+                            A.迅速撤离<br/>B.及时汇报<br/>C.防护避险<br/>D.保持镇静<br/>E.撤离路线<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_8"
+                                  checked="checked"
+                                  name="answer_10019" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_8"
+                                  checked="checked"
+                                  name="answer_10019" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_8"
+                                  checked="checked"
+                                  name="answer_10019" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_8"
+                                  checked="checked"
+                                  name="answer_10019" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_8"
+                                  checked="checked"
+                                  name="answer_10019" value="E">E</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_9" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">9</span>
+                        <p>应对发生在火车站的刀斧砍杀恐怖袭击方法（    ）</p>
+                        </dt>
+                        <dd>
+                            A.控制事态<br/>B.紧急疏散<br/>C.协助调查<br/>D.救治伤员<br/>E.自防报警<br/>F.自救撤离<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  checked="checked"
+                                  name="answer_10025" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  checked="checked"
+                                  name="answer_10025" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  checked="checked"
+                                  name="answer_10025" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  checked="checked"
+                                  name="answer_10025" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  checked="checked"
+                                  name="answer_10025" value="E">E</label>
+                    <label><input type="checkbox" id="answer_98691_9"
+                                  name="answer_10025" value="F">F</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98691_10" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">10</span>
+                        <p>涉恐可疑物品主要有（    ）</p>
+                        </dt>
+                        <dd>
+                            A.制爆敏感物品<br/>B.暴恐极端宣传品<br/>C.格斗训练器材<br/>D.偷越边境携带物品<br/>E.违禁管制物品<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                    <label><input type="checkbox" id="answer_98691_10"
+                                  checked="checked"
+                                  name="answer_10031" value="A">A</label>
+                    <label><input type="checkbox" id="answer_98691_10"
+                                  checked="checked"
+                                  name="answer_10031" value="B">B</label>
+                    <label><input type="checkbox" id="answer_98691_10"
+                                  checked="checked"
+                                  name="answer_10031" value="C">C</label>
+                    <label><input type="checkbox" id="answer_98691_10"
+                                  checked="checked"
+                                  name="answer_10031" value="D">D</label>
+                    <label><input type="checkbox" id="answer_98691_10"
+                                  checked="checked"
+                                  name="answer_10031" value="E">E</label>
+                    </span>
+                        </dd>
+                    </dl>
+                    <input type="hidden" id="qidlist_98692" name="qidlist_98692" value="10076,10055,10073,10071,10069,10046,10065,10043,10081,10078,10077,10054,10051,10048,10066,10045,10061,10058,10053,10063">
+                    <div id="topic_98692" class="tit1 pd1" style="display:none;">第三题、判断题<span class="ft3">(共20题，每题2分，共40分)</span></div>
+                    <dl id="question_98692_1" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>遇到恐怖分子劫持应报警拨打119。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_1" name="answer_10076" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_1" name="answer_10076" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_2" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>遇到枪击时用草堆遮蔽住自己身体。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_2" name="answer_10055" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_2" name="answer_10055" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_3" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>受到火势威胁时顺着人流方向撤离。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_3" name="answer_10073" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_3" name="answer_10073" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_4" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>恐怖活动组织就是进行恐怖袭击的组织。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_4" name="answer_10071" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_4" name="answer_10071" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_5" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>发现涉恐嫌疑人员保持冷静，立即报警。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_5" name="answer_10069" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_5" name="answer_10069" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_6" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>铁路职工应承担反恐怖主义的职责和义务。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_6" name="answer_10046" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_6" name="answer_10046" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_7" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>在列车上发生恐怖采取砸窗、跳车。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_7" name="answer_10065" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_7" name="answer_10065" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_8" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>经批准在宗教活动场所进行的礼拜的视为涉恐可疑人。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_8" name="answer_10043" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_8" name="answer_10043" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_9" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">9</span>
+                        <p>发现可疑人员大呼大叫。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_9" name="answer_10081" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_9" name="answer_10081" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_10" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">10</span>
+                        <p>爆炸物可能放置在的地方是各种交通工具如汽车、火车、地铁。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_10" name="answer_10078" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_10" name="answer_10078" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_11" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">11</span>
+                        <p>一旦摔倒设法让身体靠近墙根或其它支撑物，防止惊慌人群踩踏。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_11" name="answer_10077" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_11" name="answer_10077" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_12" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">12</span>
+                        <p>手臂出血止血部位在手臂的1/2处。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_12" name="answer_10054" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_12" name="answer_10054" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_13" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">13</span>
+                        <p>人工呼吸嘴对嘴吹气每分钟16-18次。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_13" name="answer_10051" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_13" name="answer_10051" checked="checked" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_14" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">14</span>
+                        <p>宣传恐怖主义，煽动实施恐怖活动是恐怖活动。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_14" name="answer_10048" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_14" name="answer_10048" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_15" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">15</span>
+                        <p>报警时要确保自己目前是否面临危险，如有危险，注意自身防护。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_15" name="answer_10066" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_15" name="answer_10066" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_16" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">16</span>
+                        <p>购买大量火柴、鞭炮和管制刀具是涉恐嫌疑人。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_16" name="answer_10045" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_16" name="answer_10045" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_17" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">17</span>
+                        <p>发生在铁路道口驾车冲撞碾轧袭击道口监护人员应立即封控报警。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_17" name="answer_10061" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_17" name="answer_10061" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_18" class="st" style="display:none;">
+                        <dt class="nobold"><span class="num">18</span>
+                        <p>发生在铁路车站持枪袭击时应紧急疏散人员。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_18" name="answer_10058" checked="checked" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_18" name="answer_10058" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_19" class="st" style="">
+                        <dt class="nobold"><span class="num">19</span>
+                        <p>烧伤后直接用冰敷在伤口上。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_19" name="answer_10053" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_19" name="answer_10053" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                    <dl id="question_98692_20" class="st" style="">
+                        <dt class="nobold"><span class="num">20</span>
+                        <p>发现可疑爆炸物品首先打开进行检查确认。</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+                            <span class="fl w2 bx7">
+                 <label><input type="radio" id="answer_98692_20" name="answer_10063" value="Y">正确</label>
+                 <label><input type="radio" id="answer_98692_20" name="answer_10063" value="N">错误</label>
+                 </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="fixDivBtm">
+                    <div id="dragBar"><span></span><em></em></div>
+                    <div class="show_choose clf tal-c">
+                        <span class="show_btn bg_img fl LastTopic" id="prevQuestion" onclick="pre_click();"></span>
+                        <span class="show_btn bg_img fl NextTopic" id="nextQuestion" onclick="next_click();"></span>
+                        <span class="show_btn bg_img fl Undetermined" id="standingby" onclick="pause_click();"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            var ipt = $("label input");
+            ipt.parent().removeClass("sd");
+            ipt.filter(":checked").parent().addClass("sd");
+            ipt.each(function () {
+                var fkid = $(this).attr("id").replace("answer_", "");
+                var ids = new Array();
+                $("input[id='answer_" + fkid + "']").each(function () {
+                    if ($(this).attr('checked'))
+                        ids.push($(this).val());
+                });
+                if (ids.length > 0) {
+                    if ($("#q_" + fkid).hasClass("green_bg ") == false) {
+                        $("#q_" + fkid).addClass("green_bg ");
+                    }
+                } else {
+                    $("#q_" + fkid).removeClass("green_bg ");
+                }
+            });
+            $("#examTopicWrapId").find("li:first").trigger("click");
+        });
+    });
+</script>
+</body>
+</html>

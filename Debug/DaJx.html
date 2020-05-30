@@ -1,0 +1,3233 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>答案解析|安电职教在线考试系统 V4.4.17</title>
+    <meta name="keywords" content="站段最好的在线考试系统">
+    <meta name="description" content="站段最好的在线考试系统">
+    <meta name="generator" content="安电职教(10.109.223.7:216)">
+
+    <script type="text/javascript">
+        if (window.Event)
+            function nocontextmenu(e) {
+                var ev = e ? e : window.event;
+                ev.cancelBubble = true
+                ev.returnValue = false;
+                if (ev.preventDefault) {
+                    ev.preventDefault();
+                }
+                if (ev.stopPropagation) {
+                    ev.stopPropagation();
+                }
+                return false;
+            }
+        function nocopy(e) {
+            var ev = e ? e : window.event;
+            ev.cancelBubble = true
+            ev.returnValue = false;
+            if (ev.preventDefault) {
+                ev.preventDefault();
+            }
+            if (ev.stopPropagation) {
+                ev.stopPropagation();
+            }
+            return false;
+        }
+        function norightclick(e) {
+            if (window.Event) {
+                if (e.which == 2 || e.which == 3)
+                    return false;
+            }
+            else
+            if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true;
+                event.returnvalue = false;
+                return false;
+            }
+        }
+        document.oncontextmenu = nocontextmenu; // for IE5+
+        document.oncopy = nocopy;
+        document.onkeydown = function (event) //shield F5  //shift+F10 ctrl+R
+        {
+            event = event ? event : (window.event ? window.event : null); // ie firefox
+            if (event.keyCode == 116 || (event.shiftKey && event.keyCode == 121) || (event.ctrlKey && event.keyCode == 82)) {
+                event.keyCode = 0;
+                event.cancelBubble = true;
+                event.returnValue = false;
+                if (event && event.preventDefault)
+                    event.preventDefault();
+                else
+                    window.event.returnValue = false;
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function nice() {
+            window.niceObj = $(".rnlt2").niceScroll({ cursorcolor: "#6E737B", cursoropacitymin: 1, cursorwidth: "6px", cursorborder: "none", cursorborderradius: "4px" });
+        }
+        function niceback(b) {
+            if (!window.ascrail2000) return;
+            if (b) {
+                window.ascrail2000.css({
+                    "position": "fixed",
+                    "z-index": '9999',
+                    'top': '235px'
+                });
+            } else {
+                window.ascrail2000.css({
+                    "position": "absolute",
+                    "z-index": '9999',
+                    'top': '305px'
+                });
+            }
+            return true;
+        }
+        $(function () {
+            var ipt = $("label input");
+            ipt.parent().removeClass("sd");
+            ipt.filter(":checked").parent().addClass("sd");
+            layer.use('extend/layer.ext.js');//弹出层插件
+            nice();
+            window.ascrail2000 = $('#ascrail2000');
+            $('.rnav').mouseover(function () {
+                niceback($('.hbx1').hasClass("fixed"));
+            });
+        });
+        function AddFav(qid, action) {
+            $.post("favajax.aspx", {
+                qid: qid,
+                action: action
+            }, function (data) {
+                if (data.error > 0) {
+                    alert(data.message);
+                    return;
+                }
+                if (data.action == -1) {
+                    $("#fav_" + qid).html("<a href=\"javascript:AddFav(" + qid + ",1);\">收藏本题</a>");
+                    layer.msg('取消收藏成功!', 2, -1);
+                }
+                else if (data.action =1) {
+                    $("#fav_" + qid).html("<a href=\"javascript:AddFav(" + qid + ",-1);\">取消收藏</a>");
+                    layer.msg('收藏本题成功!', 2, -1);
+                }
+            }, "json");
+        }
+        function EditNote(qid, num) {
+            var note=$('#note_' + qid).html();
+            layer.prompt({type: 3,title: '(安康电务车间2017年4月份月度抽考)第' + num + '题笔记', val:note},function (val) {
+                $.post("noteajax.aspx", {
+                    qid: qid,
+                    note: val
+                }, function (data) {
+                    if (data.error > 0) {
+                        alert(data.message);
+                        return;
+                    }
+                    $('#note_' + qid).html(val);
+                    $('#shownote_' + qid).show();
+                    layer.msg('笔记保存成功!', 2, -1);
+                }, "json");
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+<noscript>
+    &lt;iframe src="*"&gt;&lt;/iframe&gt;
+</noscript>
+<div class="hbx1 fixed">
+    <div class="hbx2">
+        <div class="hbx3"><img src="/exam/logo/top.jpg"></div>
+        <div class="hbx4 hbx4a">
+            <div class="fr"></div>
+            <a id="analisisLink" href="examresult.aspx?resultid=16338" class="tab3">考试分析</a> <span class="tab3 tab3a">答案解析</span> </div>
+    </div>
+</div><div class="hbx1 _hbx1_"></div>
+<div class="hbx2 hbx2_f">
+    <div class="rnav rnavf" style="right: 201.5px;">
+        <div class="rnavhd">试题卡</div>
+        <div class="rnavct">
+            <div class="mb10"> 试题数：101题<br>
+                错题数：11题<br>
+                未答数：0题<br>
+                总得分：88.5分 </div>
+            <ul class="rnlt1 fc">
+                <li><span class="bg1"></span>正确题</li>
+                <li><span class="bg2"></span>错误题</li>
+                <li><span class="bg3"></span>未答题</li>
+                <li><span class="bg4"></span>主观题</li>
+            </ul>
+            <ul class="rnlt2 fc" tabindex="5000" style="overflow: hidden; outline: none; height: 385px;">
+                <li><a href="#1" id="fc_1" class="bg1">1</a></li>
+                <li><a href="#2" id="fc_2" class="bg2">2</a></li>
+                <li><a href="#3" id="fc_3" class="bg1">3</a></li>
+                <li><a href="#4" id="fc_4" class="bg1">4</a></li>
+                <li><a href="#5" id="fc_5" class="bg1">5</a></li>
+                <li><a href="#6" id="fc_6" class="bg1">6</a></li>
+                <li><a href="#7" id="fc_7" class="bg2">7</a></li>
+                <li><a href="#8" id="fc_8" class="bg2">8</a></li>
+                <li><a href="#9" id="fc_9" class="bg1">9</a></li>
+                <li><a href="#10" id="fc_10" class="bg1">10</a></li>
+                <li><a href="#11" id="fc_11" class="bg1">11</a></li>
+                <li><a href="#12" id="fc_12" class="bg1">12</a></li>
+                <li><a href="#13" id="fc_13" class="bg1">13</a></li>
+                <li><a href="#14" id="fc_14" class="bg1">14</a></li>
+                <li><a href="#15" id="fc_15" class="bg1">15</a></li>
+                <li><a href="#16" id="fc_16" class="bg1">16</a></li>
+                <li><a href="#17" id="fc_17" class="bg1">17</a></li>
+                <li><a href="#18" id="fc_18" class="bg1">18</a></li>
+                <li><a href="#19" id="fc_19" class="bg1">19</a></li>
+                <li><a href="#20" id="fc_20" class="bg2">20</a></li>
+                <li><a href="#21" id="fc_21" class="bg1">21</a></li>
+                <li><a href="#22" id="fc_22" class="bg1">22</a></li>
+                <li><a href="#23" id="fc_23" class="bg2">23</a></li>
+                <li><a href="#24" id="fc_24" class="bg1">24</a></li>
+                <li><a href="#25" id="fc_25" class="bg1">25</a></li>
+                <li><a href="#26" id="fc_26" class="bg1">26</a></li>
+                <li><a href="#27" id="fc_27" class="bg1">27</a></li>
+                <li><a href="#28" id="fc_28" class="bg1">28</a></li>
+                <li><a href="#29" id="fc_29" class="bg1">29</a></li>
+                <li><a href="#30" id="fc_30" class="bg1">30</a></li>
+                <li><a href="#31" id="fc_31" class="bg1">31</a></li>
+                <li><a href="#32" id="fc_32" class="bg1">32</a></li>
+                <li><a href="#33" id="fc_33" class="bg1">33</a></li>
+                <li><a href="#34" id="fc_34" class="bg1">34</a></li>
+                <li><a href="#35" id="fc_35" class="bg1">35</a></li>
+                <li><a href="#36" id="fc_36" class="bg1">36</a></li>
+                <li><a href="#37" id="fc_37" class="bg2">37</a></li>
+                <li><a href="#38" id="fc_38" class="bg1">38</a></li>
+                <li><a href="#39" id="fc_39" class="bg2">39</a></li>
+                <li><a href="#40" id="fc_40" class="bg2">40</a></li>
+                <li><a href="#41" id="fc_41" class="bg1">41</a></li>
+                <li><a href="#42" id="fc_42" class="bg1">42</a></li>
+                <li><a href="#43" id="fc_43" class="bg1">43</a></li>
+                <li><a href="#44" id="fc_44" class="bg1">44</a></li>
+                <li><a href="#45" id="fc_45" class="bg1">45</a></li>
+                <li><a href="#46" id="fc_46" class="bg1">46</a></li>
+                <li><a href="#47" id="fc_47" class="bg1">47</a></li>
+                <li><a href="#48" id="fc_48" class="bg1">48</a></li>
+                <li><a href="#49" id="fc_49" class="bg1">49</a></li>
+                <li><a href="#50" id="fc_50" class="bg1">50</a></li>
+                <li><a href="#51" id="fc_51" class="bg1">51</a></li>
+                <li><a href="#52" id="fc_52" class="bg1">52</a></li>
+                <li><a href="#53" id="fc_53" class="bg1">53</a></li>
+                <li><a href="#54" id="fc_54" class="bg1">54</a></li>
+                <li><a href="#55" id="fc_55" class="bg1">55</a></li>
+                <li><a href="#56" id="fc_56" class="bg1">56</a></li>
+                <li><a href="#57" id="fc_57" class="bg1">57</a></li>
+                <li><a href="#58" id="fc_58" class="bg1">58</a></li>
+                <li><a href="#59" id="fc_59" class="bg2">59</a></li>
+                <li><a href="#60" id="fc_60" class="bg1">60</a></li>
+                <li><a href="#61" id="fc_61" class="bg1">61</a></li>
+                <li><a href="#62" id="fc_62" class="bg1">62</a></li>
+                <li><a href="#63" id="fc_63" class="bg1">63</a></li>
+                <li><a href="#64" id="fc_64" class="bg1">64</a></li>
+                <li><a href="#65" id="fc_65" class="bg1">65</a></li>
+                <li><a href="#66" id="fc_66" class="bg1">66</a></li>
+                <li><a href="#67" id="fc_67" class="bg1">67</a></li>
+                <li><a href="#68" id="fc_68" class="bg1">68</a></li>
+                <li><a href="#69" id="fc_69" class="bg1">69</a></li>
+                <li><a href="#70" id="fc_70" class="bg1">70</a></li>
+                <li><a href="#71" id="fc_71" class="bg1">71</a></li>
+                <li><a href="#72" id="fc_72" class="bg1">72</a></li>
+                <li><a href="#73" id="fc_73" class="bg1">73</a></li>
+                <li><a href="#74" id="fc_74" class="bg1">74</a></li>
+                <li><a href="#75" id="fc_75" class="bg1">75</a></li>
+                <li><a href="#76" id="fc_76" class="bg1">76</a></li>
+                <li><a href="#77" id="fc_77" class="bg1">77</a></li>
+                <li><a href="#78" id="fc_78" class="bg2">78</a></li>
+                <li><a href="#79" id="fc_79" class="bg1">79</a></li>
+                <li><a href="#80" id="fc_80" class="bg1">80</a></li>
+                <li><a href="#81" id="fc_81" class="bg1">81</a></li>
+                <li><a href="#82" id="fc_82" class="bg1">82</a></li>
+                <li><a href="#83" id="fc_83" class="bg1">83</a></li>
+                <li><a href="#84" id="fc_84" class="bg1">84</a></li>
+                <li><a href="#85" id="fc_85" class="bg1">85</a></li>
+                <li><a href="#86" id="fc_86" class="bg1">86</a></li>
+                <li><a href="#87" id="fc_87" class="bg1">87</a></li>
+                <li><a href="#88" id="fc_88" class="bg1">88</a></li>
+                <li><a href="#89" id="fc_89" class="bg1">89</a></li>
+                <li><a href="#90" id="fc_90" class="bg1">90</a></li>
+                <li><a href="#91" id="fc_91" class="bg1">91</a></li>
+                <li><a href="#92" id="fc_92" class="bg1">92</a></li>
+                <li><a href="#93" id="fc_93" class="bg1">93</a></li>
+                <li><a href="#94" id="fc_94" class="bg1">94</a></li>
+                <li><a href="#95" id="fc_95" class="bg1">95</a></li>
+                <li><a href="#96" id="fc_96" class="bg1">96</a></li>
+                <li><a href="#97" id="fc_97" class="bg2">97</a></li>
+                <li><a href="#98" id="fc_98" class="bg1">98</a></li>
+                <li><a href="#99" id="fc_99" class="bg4">99</a></li>
+                <li><a href="#100" id="fc_100" class="bg4">100</a></li>
+                <li><a href="#101" id="fc_101" class="bg4">101</a></li>
+            </ul>
+            <script type="text/javascript">
+                $(function () {
+                    $('.rnlt2 a').click(function () {
+                        var top = $($(this).attr('href')).offset().top + 120;
+                        $(window).scrollTop(top);
+                        return false;
+                    });
+                });
+            </script>
+        </div>
+        <div class="rnavft"></div>
+    </div>
+    <div class="wp wpa">
+        <div class="wp2">
+            <div class="wp3">
+                <div class="wp4">
+                    <h1 class="t" style="text-align:center;">安康电务车间2017年4月份月度抽考</h1>
+                    <div class="fc box">
+                        <div class="fl">
+                            <div class="img-sprite icon_count">
+                                <p class="count1">您的分数</p>
+                                <div class="count2">88.5</div>
+                            </div>
+                        </div>
+                        <div class="fr">
+                            <p class="m">
+                                考生：陈景辉，考试时间：2017-04-20 17:27:04
+                                ，尚未阅卷。
+                            </p>
+                            <table>
+                                <tbody><tr class="t">
+                                    <td>分数组成</td>
+                                    <td>全体排名</td>
+                                    <td>答卷耗时</td>
+                                    <td>错题数量</td>
+                                </tr>
+                                <tr>
+                                    <td>客观题65.5分 + 主观题23分</td>
+                                    <td>13</td>
+                                    <td>12分钟</td>
+                                    <td>11题</td>
+                                </tr>
+                                <tr class="t">
+                                    <td>试卷满分</td>
+                                    <td>及格分数</td>
+                                    <td>最高分数</td>
+                                    <td>平均分数</td>
+                                </tr>
+                                <tr>
+                                    <td>100分</td>
+                                    <td>80分</td>
+                                    <td>99.5分</td>
+                                    <td>0分</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="text-align:left;width:100%">&nbsp;&nbsp;&nbsp;&nbsp;
+                                        获得经验值为0。
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </div>
+                    </div>
+                    <!--head end -->
+                    <form id="testProcessForm" name="testProcessForm" action="" method="post">
+                        <input type="hidden" name="resultid" value="16338">
+                        <div class="tit1 pd1">考试视频图片：</div>
+                        <div class="bx1 pd1m mb20">
+                            <div>
+                                <img src="/upload/201704/20/201704201739093776.jpg" width="200" height="160" style="border:solid 1px #000000">
+                            </div>
+                        </div>
+                        <a id="1"></a>
+                        <div class="tit1 pd1"></div>
+                        <div class="tit1 pd1">第一题、不定项选择题<span class="ft3">(共60题，每题1分，共60分)</span></div>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="2">1</span>
+                            <p>防洪地点实行(    )。《西安铁路局防洪工作细则-第26条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.常态管理
+                                <br>B.<b>动态管理</b><br>C.静态管理<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6429" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6429" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6429" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6429" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6429" href="javascript:AddFav(6429,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6429,1)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6429" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6429"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="3">2</span>
+                            <p>处理故障必须做到"三及时"是（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.若不能立即修复或原因一时不清时应及时登记停用；<br>B.<b>接到故障通知后，及时赶赴现场按"故障处理程序和注意事项"分析、处理故障；</b><br>C.及时等待救援；<br>D.<b>及时向上级汇报。</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1009" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1009" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1009" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_1009" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1009" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1009" href="javascript:AddFav(1009,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1009,2)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1009" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1009"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="4">3</span>
+                            <p>1各种基础或支持物无影响强度的裂纹，安设稳固，其倾斜限度不得超过（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.36mm
+                                <br>B.<b>10mm</b><br>C.25mm<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1116" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1116" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1116" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1116" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1116" href="javascript:AddFav(1116,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1116,3)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1116" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1116"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="5">4</span>
+                            <p>2（   ）是对信号设备进行的日常养护和集中检修，通过维护，保持设备性能，预防设备故障，使设备经常处于良好的运用状态。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.信号中修<br>B.信号大修
+                                <br>C.<b>信号维修</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_917" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_917" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_917" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="917" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_917" href="javascript:AddFav(917,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(917,4)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_917" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_917"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="6">5</span>
+                            <p>1ZPW-2000A无绝缘轨道电路电缆使用说法正确的是（   ）。(维规-技术标准)
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>两个频率相同的发送与接收不能使用同一根电缆。</b><br>B.<b>两个频率相同的发送不能设置在同一屏蔽四线组内。</b><br>C.两个频率相同的接收可以设置在同一屏蔽四线组内。<br>D.<b>电缆中各发送、各接收线对必须按四芯组对角线成对使用。</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1024" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1024" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1024" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_1024" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1024" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1024" href="javascript:AddFav(1024,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1024,5)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1024" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1024"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="7">6</span>
+                            <p>在停留列车、车辆前部或尾部通过时，应与其保持（   ）以上距离。（电务安全规则（铁总运[2015]26号））
+                            </p>
+                            </dt>
+                            <dd>
+                                A.8m
+                                <br>B.<b> 5m</b><br>C.6m<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1174" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1174" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1174" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1174" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1174" href="javascript:AddFav(1174,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1174,6)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1174" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1174"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="8">7</span>
+                            <p>相关设备管理单位应加强对铁路防洪基础设施和周边环境的（   ），积极整治隐患，保障铁路抗洪能力.《西安铁路局防洪工作细则-第7条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A. 评估<br>B. 总结
+                                <br>C.<b> 检查</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6426" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6426" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6426" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6426" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6426" href="javascript:AddFav(6426,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6426,7)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6426" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6426"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="9">8</span>
+                            <p>CTCS-2级列控系统完全监控模式下按高于线路允许速度（   ）km/h报警设置模式曲线。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.5<br>B.2<br>C.<b>10</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1041" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1041" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1041" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1041" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1041" href="javascript:AddFav(1041,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1041,8)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1041" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1041"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="10">9</span>
+                            <p>轨道电路的跳线和引接线，断股不得超过（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.1/3
+                                <br>B.<b>1/5</b><br>C.1/4<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1143" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1143" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1143" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1143" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1143" href="javascript:AddFav(1143,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1143,9)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1143" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1143"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="11">10</span>
+                            <p>ZPW-2000A无绝缘轨道电路应能实现全程断轨检查，主轨道断轨时,"轨出1"电压不大于（   ）,轨道继电器可靠落下。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.120mV<br>B.<b>140mV</b>
+                                <br>C.110mV<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_949" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_949" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_949" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="949" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_949" href="javascript:AddFav(949,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(949,10)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_949" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_949"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="12">11</span>
+                            <p>防洪工作要依靠现代科学技术，在（   ）和防洪管理等环节，运用先进科技手段，提高科学防洪工作水平.《西安铁路局防洪工作细则-第9条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 隐患排查</b><br>B.<b> 水害抢险</b><br>C.<b>防洪工程</b>
+                                <br>D.<b> 预报预警</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6440" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6440" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6440" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6440" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6440" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6440" href="javascript:AddFav(6440,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6440,11)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6440" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6440"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="13">12</span>
+                            <p>对高于36V电压的电务设备进行带电作业时，应遵守以下规定（   ）。（电务安全规则（铁总运[2015]26号））
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>不得同时接触导电和接地部分</b><br>B.<b>未脱离导电部分时，不得与站在地面的人员接触或相互传递工具、材料。</b><br>C.可以和其他人接触。
+                                <br>D.<b>使用带绝缘的工具，穿绝缘胶鞋（室内应站在绝缘板上）</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1014" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1014" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1014" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_1014" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1014" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1014" href="javascript:AddFav(1014,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1014,12)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1014" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1014"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="14">13</span>
+                            <p>防洪工作实行主要领导负责制，统一指挥，分工负责，落实逐级负责制和岗位责任制，形成(   )的全员防洪工作局面.《西安铁路局防洪工作细则-第4条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 分工明确</b><br>B.<b> 纪律严明</b><br>C.<b> 措施到位</b><br>D.<b> 保障有力</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6432" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6432" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6432" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6432" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6432" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6432" href="javascript:AddFav(6432,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6432,13)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6432" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6432"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="15">14</span>
+                            <p>路局防洪指挥部办公室（以下简称局防洪办）设在（   ），承担路局防洪日常工作，办公室主任由工务处处长兼任。防洪指挥部成员部门应明确本部门防洪管理人员，承担本系统防洪日常工作。《西安铁路局防洪工作细则-第11条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A. 安监室
+                                <br>B.<b> 工务处</b><br>C. 办公室<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6459" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6459" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6459" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6459" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6459" href="javascript:AddFav(6459,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6459,14)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6459" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6459"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="16">15</span>
+                            <p>ZPW-2000A无绝缘轨道电路以空芯线圈安装点为准，两侧调谐单元安装点距离该点距离为（    ）m。（普速维规-技术标准）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.14.35~14.65<br>B.<b>14.5~14.65</b>
+                                <br>C.14.5<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1175" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1175" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1175" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1175" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1175" href="javascript:AddFav(1175,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1175,15)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1175" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1175"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="17">16</span>
+                            <p>JM型密贴检查器动接点环打入静接点片的深度不应小于（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.3mm<br>B.<b>4mm</b><br>C.5mm
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_933" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_933" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_933" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="933" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_933" href="javascript:AddFav(933,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(933,16)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_933" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_933"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="18">17</span>
+                            <p>进站及接车进路色灯信号机，均应设（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.复示信号
+                                <br>B.预告信号<br>C.<b>引导信号</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1083" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1083" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1083" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1083" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1083" href="javascript:AddFav(1083,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1083,17)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1083" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1083"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="19">18</span>
+                            <p>改变运行方向电路，当甲站出站信号机开放后或列车在区间运行时，两站的JQD（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.乙站点亮<br>B.<b>甲、乙两站同时点亮</b>
+                                <br>C.甲站点亮<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_890" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_890" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_890" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="890" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_890" href="javascript:AddFav(890,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(890,18)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_890" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_890"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="20">19</span>
+                            <p>ZPW-2000R型无绝缘轨道电路在最不利条件下，用0.15Ω标准分路线分路，主轨道无分路死区段。调谐区分路死区段不大于（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.3m<br>B.<b>5m</b>
+                                <br>C.2m<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_950" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_950" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_950" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="950" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_950" href="javascript:AddFav(950,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(950,19)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_950" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_950"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="21">20</span>
+                            <p>汛期，工务、供电、电务部门的基层工区应留有足够的人员值班并由工长或副工长带班（电务部门可由胜任人员带班），确保能够在（   ）内执行出巡检查和应急处置。《西安铁路局防洪工作细则-第40条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 10分钟</b><br>B. 20分钟
+                                <br>C. 15分钟<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6456" checked="checked" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6456" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6456" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6456" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6456" href="javascript:AddFav(6456,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6456,20)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6456" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6456"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="22">21</span>
+                            <p>断开综合接地贯通线前，须在贯通线纵向位置，安设一条截面不少于（   ）mm2的铜连接线，连接可靠方可开始作业。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.4<br>B.10
+                                <br>C.<b>70</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1158" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1158" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1158" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1158" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1158" href="javascript:AddFav(1158,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1158,21)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1158" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1158"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="23">22</span>
+                            <p>（   ）负责Ⅰ级防洪地点纳入LKJ基础数据,安设看守点电话并确保通讯正常。《西安铁路局防洪工作细则-第27条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.机务部门<br>B.车务部门<br>C.<b>电务部门</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6470" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6470" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6470" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6470" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6470" href="javascript:AddFav(6470,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6470,22)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6470" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6470"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="24">23</span>
+                            <p>影响行车的大型水害发生后（   ）内启用应急通信，通信部门将现场图片（像）发送到铁路局防洪指挥部及其办公室。《西安铁路局防洪工作细则-第85条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A. 5小时
+                                <br>B.<b> 3小时</b><br>C. 4小时<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6462" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6462" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6462" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6462" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6462" href="javascript:AddFav(6462,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6462,23)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6462" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6462"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="25">24</span>
+                            <p>CTC、TDCS系统应实时显示：（   ）(维规-技术标准)
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>区间占用与空闲</b><br>B.<b>信号开放与关闭</b><br>C.<b>道岔位置的状态</b>
+                                <br>D.<b>轨道电路占用与空闲</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_891" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_891" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_891" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_891" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="891" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_891" href="javascript:AddFav(891,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(891,24)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_891" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_891"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="26">25</span>
+                            <p>集中联锁设备应保证：当进路建立后，该进路上的道岔（   ）转换。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.能<br>B.<b>不能</b><br>C.延时转换
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1099" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1099" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1099" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1099" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1099" href="javascript:AddFav(1099,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1099,25)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1099" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1099"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="27">26</span>
+                            <p>汛前防洪大检查，各单位党政正职应亲自安排部署，组织制定推进方案，确定检查项目、责任人员、时间节点和考核办法，开展（   ）防洪大检查工作。《西安铁路局防洪工作细则-第21条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.分段式
+                                <br>B.<b>记名式</b><br>C.签到式<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6475" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6475" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6475" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6475" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6475" href="javascript:AddFav(6475,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6475,26)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6475" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6475"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="28">27</span>
+                            <p>信号设备的防雷装置应设防雷地线；信号机械室内有（   ）设备需加装防雷地线。（维规-技术标准）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>闭塞设备机柜</b><br>B.<b>电源屏</b><br>C.<b>控制台</b>
+                                <br>D.<b>计算机联锁机柜</b><br>E.<b>组合架（柜）</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_960" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_960" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_960" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_960" checked="checked" value="D" disabled="disabled">D</label>
+                <label class="sd"><input type="checkbox" name="answer_960" checked="checked" value="E" disabled="disabled">E</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D,E</span></div>
+                                <div class="mb10">本题得分：
+                <span id="960" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_960" href="javascript:AddFav(960,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(960,27)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_960" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_960"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="29">28</span>
+                            <p>ZPW-2000A无绝缘轨道电路，桥上绝缘的设置应满足（   ）要求。(维规-技术标准)
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>有护轮轨的区域，在护轮轨区域两端各加装钢轨绝缘一组。</b><br>B.<b>超过200m的护轮轨，每根护轮轨间隔200m加装钢轨绝缘一组。</b><br>C.<b>电气绝缘节一般不宜设置在有护轮轨的区域内；必须设置在有护轮轨区域内时，调谐区范围内每根护轮轨必须加装钢轨绝缘一组。</b><br>D.<b>护轮轨与基本轨间以及两护轮轨间不得有电气连接。</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1025" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1025" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1025" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_1025" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1025" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1025" href="javascript:AddFav(1025,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1025,28)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1025" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1025"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="30">29</span>
+                            <p>调车信号机灯泡端电压为（ ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>额定值的75%~95%</b>
+                                <br>B.额定值的85%~95%<br>C.额定值的65%~85%<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1131" checked="checked" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1131" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1131" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1131" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1131" href="javascript:AddFav(1131,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1131,29)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1131" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1131"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="31">30</span>
+                            <p>信号机械室应建立3个测试记录本，3个测试记录本是（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>《轨道电路分路不良区段测试及处理记录本》</b> <br>B.<b>《ZPW-2000轨道电路测试记录本》</b><br>C.《微机监测调看分析记录本》
+                                <br>D.<b>《站内信号设备电气特性Ⅰ级测试记录本》</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_982" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_982" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_982" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_982" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="982" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_982" href="javascript:AddFav(982,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(982,30)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_982" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_982"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="32">31</span>
+                            <p>铁路水害应急响应遵循"（   ）"的原则，抢险结束后，由启动单位宣布应急响应结束.《西安铁路局防洪工作细则-第97条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 谁启动</b><br>B.<b> 谁结束</b><br>C. 谁管理
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6446" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6446" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6446" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6446" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6446" href="javascript:AddFav(6446,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6446,31)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6446" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6446"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="33">32</span>
+                            <p>设备施工检修时，施工检修部门应在车站行车室（或信号楼，调度集中区段为调度所调度台）派（   ），办理登销记、联系要点手续。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.施工负责人
+                                <br>B.<b>驻联络员</b><br>C.现场防护员<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1057" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1057" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1057" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1057" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1057" href="javascript:AddFav(1057,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1057,32)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1057" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1057"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="34">33</span>
+                            <p>四显示自动闭塞区段进站色灯信号机：（   ）显示，准许列车按规定速度经道岔直向位置进入站内，表示次一架信号机经道岔直向位置开放一个黄灯。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.一个绿色灯光<br>B.一个黄色灯光
+                                <br>C.<b>一个绿色灯光和一个黄色灯光</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1051" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1051" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1051" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1051" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1051" href="javascript:AddFav(1051,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1051,33)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1051" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1051"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="35">34</span>
+                            <p>ZPW-2000A型电缆使用说法正确的是（   ）。（维规-技术标准）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>电缆中没有相同频率线对时，使用非内屏蔽型电缆。</b><br>B.<b>ZPW-2000A型轨道电路信号传输应采用铁路数字信号电缆。</b><br>C.<b>电缆中有相同频率线对时，使用内屏蔽型电缆。</b><br>D.<b>两个频率相同的发送与接收不能使用同一根电缆。</b><br>E.<b>两个频率相同的接收不能设置在同一屏蔽四线组内。</b>
+                                <br>F.<b>两个频率相同的发送不能设置在同一屏蔽四线组内。</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="D" disabled="disabled">D</label>
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="E" disabled="disabled">E</label>
+                <label class="sd"><input type="checkbox" name="answer_965" checked="checked" value="F" disabled="disabled">F</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D,E,F</span></div>
+                                <div class="mb10">本题得分：
+                <span id="965" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_965" href="javascript:AddFav(965,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(965,34)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_965" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_965"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="36">35</span>
+                            <p>局防洪命令中，各设备管理单位防洪工作目标（ &nbsp; &nbsp; &nbsp; ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>实现路局防洪目标、确保汛期运输安全持续稳定</b><br>B.<b>杜绝因水害造成的高铁安全和旅客伤亡事故</b><br>C.<b>最大限度地减少灾害损失</b><br>D.<b>杜绝旅客列车撞压坍体事故和货物列车脱轨责任水害事故</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6507" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6507" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6507" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6507" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6507" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6507" href="javascript:AddFav(6507,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6507,35)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6507" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6507"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="37">36</span>
+                            <p>信号装置一般分为信号机和（   ）两类。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.轨道电路<br>B.<b>信号表示器</b>
+                                <br>C.道岔<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1126" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1126" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1126" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1126" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1126" href="javascript:AddFav(1126,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1126,36)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1126" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1126"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="38">37</span>
+                            <p>普速铁路防洪延时巡查是指降雨停止后，小时雨量小于（   ），一段时间内继续执行出巡检查。《西安铁路局防洪工作细则-第75条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 1mm</b><br>B. 2mm<br>C. 3mm
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6464" checked="checked" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6464" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6464" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6464" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6464" href="javascript:AddFav(6464,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6464,37)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6464" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6464"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="39">38</span>
+                            <p>装有钢轨绝缘处的轨缝应保持在（    ）ｍｍ，两钢轨头部应在同一平面，高低相差不大于2ｍｍ。（普速维规-技术标准）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>6～10</b>
+                                <br>B.2～6<br>C.8～10<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1148" checked="checked" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1148" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1148" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1148" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1148" href="javascript:AddFav(1148,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1148,38)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1148" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1148"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="40">39</span>
+                            <p>路局防洪工作目标（ &nbsp; &nbsp;）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>实现建局以来连续第十三个防洪安全年</b><br>B.<b>杜绝旅客列车脱轨、货物列车颠覆的责任水害事故</b><br>C.<b>杜绝设备责任故障</b><br>D.<b>杜绝因水害造成的高铁安全和旅客死亡事故</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6506" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6506" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6506" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6506" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6506" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6506" href="javascript:AddFav(6506,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6506,39)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6506" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6506"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="41">40</span>
+                            <p>在信号设备上进行试验或采用革新项目，变更联锁图表、电路图、信号显示方式及器材规格按（   ）规定办理。（西安铁路局信号设备联锁管理实施细则）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>改变主要器材规格、变更信号显示方式，须经总公司批准。</b> <br>B.<b>调整设备电气特性，申请铁路局批准。</b>
+                                <br>C.<b>变更信号设备联锁关系，修改电路图，由铁路局批准。</b><br>D.<b>变更接点组（不改变联锁条件）、配线图由电务段批准。</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_966" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_966" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_966" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_966" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="966" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_966" href="javascript:AddFav(966,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(966,40)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_966" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_966"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="42">41</span>
+                            <p>道岔区段轨道电路，一般不应超过（   ） 单开道岔或两组交分道岔。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.二组<br>B.<b>三组</b>
+                                <br>C.一组<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_923" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_923" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_923" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="923" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_923" href="javascript:AddFav(923,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(923,41)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_923" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_923"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="43">42</span>
+                            <p>（   ）负责Ⅰ级防洪地点相关联控、通讯设备的安装、维护，将Ⅰ级防洪地点纳入LKJ基础数据进行语音提示。《西安铁路局防洪工作细则-第25条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.机务部门<br>B.<b>电务部门</b><br>C.工务部门
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6473" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6473" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6473" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6473" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6473" href="javascript:AddFav(6473,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6473,42)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6473" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6473"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="44">43</span>
+                            <p>在（   ）等环境恶劣条件下禁止高处作业。（电务安全规则（铁总运[2015]26号））
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>六级以上大风</b>
+                                <br>B.<b>雷雨</b><br>C.<b>冰雪</b><br>D.夏季晴天<br>E.<b>能见度低</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_992" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_992" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_992" checked="checked" value="C" disabled="disabled">C</label>
+                <label><input type="checkbox" name="answer_992" value="D" disabled="disabled">D</label>
+                <label class="sd"><input type="checkbox" name="answer_992" checked="checked" value="E" disabled="disabled">E</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,E</span></div>
+                                <div class="mb10">本题得分：
+                <span id="992" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_992" href="javascript:AddFav(992,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(992,43)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_992" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_992"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="45">44</span>
+                            <p>（     ）驼峰、驼峰辅助信号机均以显示停车信号为定位。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>进路</b> <br>B.<b>调车</b>
+                                <br>C.<b>进站</b><br>D.<b>出站</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_906" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_906" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_906" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_906" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="906" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_906" href="javascript:AddFav(906,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(906,44)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_906" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_906"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="46">45</span>
+                            <p>轨道电路的状态分为调整状态、（   ） 状态、断轨状态。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.断路<br>B.<b>分路</b>
+                                <br>C.开路<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1132" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1132" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1132" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1132" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1132" href="javascript:AddFav(1132,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1132,45)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1132" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1132"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="47">46</span>
+                            <p>水害类别:指在运营铁路线上发生水害的类别.水害类别分为(    ).（《西安铁路局防洪工作细则-铁路水害损失统计规定》）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> 水害事故</b><br>B.<b> 设备损坏</b>
+                                <br>C.<b> 水害断道</b><br>D.<b> 水害慢行</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6437" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6437" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6437" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6437" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6437" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6437" href="javascript:AddFav(6437,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6437,46)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6437" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6437"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="48">47</span>
+                            <p>发现色灯信号机灯泡有下列任一情况时不准使用:（   ）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>灯口歪斜，活动或焊口假焊</b>  <br>B.<b>主副灯丝同时点亮，或其中一根灯丝断丝</b>  <br>C.<b>灯泡漏气，冒白烟，内部变黑</b>  <br>D.不超周期，印封完整
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_901" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_901" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_901" checked="checked" value="C" disabled="disabled">C</label>
+                <label><input type="checkbox" name="answer_901" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="901" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_901" href="javascript:AddFav(901,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(901,47)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_901" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_901"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="49">48</span>
+                            <p>进站、出站、进路和通过信号机的灯光熄灭、显示不明或显示不正确时，均视为（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.故障信号
+                                <br>B.无效信号<br>C.<b>停车信号</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1073" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1073" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1073" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1073" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1073" href="javascript:AddFav(1073,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1073,48)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1073" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1073"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="50">49</span>
+                            <p>各级防洪办应配备较先进的（   ）、数据和图象处理设备、气象和灾情信息接收及传输设备，快速、准确地传递防洪信息，提高办公效率。《西安铁路局防洪工作细则-第17条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.传输设备<br>B.手持终端
+                                <br>C.<b>通信设备</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6461" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6461" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6461" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6461" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6461" href="javascript:AddFav(6461,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6461,49)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6461" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6461"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="51">50</span>
+                            <p>S700K转辙机检测杆缺口调整为指示标对准检测杆缺口中央，距两侧各（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.1.5mm<br>B.1.5mm士0.5mm<br>C.<b>2mm士0.5mm</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_934" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_934" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_934" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="934" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_934" href="javascript:AddFav(934,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(934,50)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_934" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_934"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="52">51</span>
+                            <p>相关站段应成立防洪组织，组建（   ），并设立防洪办公室（以下简称"防洪办"），承担本单位的防洪工作，协调辖区内相关单位的防洪工作。《西安铁路局防洪工作细则-第12条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A. 防洪预警台
+                                <br>B.<b> 防洪抢险队</b><br>C. 防洪突击队<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6453" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6453" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6453" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6453" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6453" href="javascript:AddFav(6453,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6453,51)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6453" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6453"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="53">52</span>
+                            <p>"三预想"中"工作后"要预想的内容是（   ）。（普速信号工应知应会）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.预想联系、登记、检修准备、防护措施是否妥当。<br>B.<b>预想是否检和修都彻底，复查试验、加封加锁，注销登记手续是否完备。</b>
+                                <br>C.预想有无漏检、漏修和只检不修及造成妨害的可能。<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1142" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1142" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1142" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1142" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1142" href="javascript:AddFav(1142,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1142,52)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1142" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1142"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="54">53</span>
+                            <p>各级人员在遇到突发暴雨、大风等恶劣天气时，应本着"（   ）"的原则，视情况主动采取限速、封锁、扣车等安全措施，相关手续可后续补办，要求如下。《西安铁路局防洪工作细则-突发恶劣天气时普速铁路应急处置措施》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.预防为主<br>B.<b>安全第一</b><br>C.不留隐患
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6467" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6467" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_6467" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6467" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6467" href="javascript:AddFav(6467,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6467,53)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6467" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6467"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="55">54</span>
+                            <p>双机热备计算机联锁系统的工作状态有工作状态、（   ）和冷机状态。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.同步校核状态
+                                <br>B.热备状态<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1067" value="A" disabled="disabled">正确</label>
+                <label class="sd"><input type="checkbox" name="answer_1067" checked="checked" value="B" disabled="disabled">错误]</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1067" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1067" href="javascript:AddFav(1067,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1067,54)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1067" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1067"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="56">55</span>
+                            <p>电务"垂直天窗"每次不得少于（   ）分钟。（天窗修管理考核办法）
+                            </p>
+                            </dt>
+                            <dd>
+                                A.20<br>B.<b>30</b><br>C.15
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_939" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_939" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_939" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="939" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_939" href="javascript:AddFav(939,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(939,55)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_939" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_939"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="57">56</span>
+                            <p>进站、出站、进路信号机及线路所通过信号机，因受地形、地物影响，达不到规定的显示距离时，应设（   ）。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.遮断信号机
+                                <br>B.<b>复示信号机</b><br>C.表示器<br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1100" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1100" checked="checked" value="B" disabled="disabled">B</label>
+                <label><input type="checkbox" name="answer_1100" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1100" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1100" href="javascript:AddFav(1100,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1100,56)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1100" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1100"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="58">57</span>
+                            <p>以下（   ）是"一表一票一图"的内容。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b>施工工作票</b><br>B.<b>安全技术组织措施表</b><br>C.<b>电气集中换装施工组织安排图</b><br>D.联锁控制表
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_1008" checked="checked" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_1008" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1008" checked="checked" value="C" disabled="disabled">C</label>
+                <label><input type="checkbox" name="answer_1008" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1008" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1008" href="javascript:AddFav(1008,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1008,57)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1008" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1008"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="59">58</span>
+                            <p>供电、电务部门应检查沿线水围电杆、（   ）径路、接触网立柱、铁塔、供电线路，发现问题及时处理.《西安铁路局防洪工作细则-第20条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A. 设备
+                                <br>B.<b> 光缆</b><br>C.<b> 电缆</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_6450" value="A" disabled="disabled">A</label>
+                <label class="sd"><input type="checkbox" name="answer_6450" checked="checked" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6450" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">B,C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6450" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6450" href="javascript:AddFav(6450,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6450,58)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6450" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6450"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="60">59</span>
+                            <p>铁路防洪应急响应分为（   ）（具体内容见《西安铁路局防洪应急预案》.《西安铁路局防洪工作细则-第25条》
+                            </p>
+                            </dt>
+                            <dd>
+                                A.<b> Ⅲ</b><br>B. Ⅱ<br>C.<b>Ⅳ</b>
+                                <br>D.<b> Ⅰ</b><br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label class="sd"><input type="checkbox" name="answer_6443" checked="checked" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_6443" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_6443" checked="checked" value="C" disabled="disabled">C</label>
+                <label class="sd"><input type="checkbox" name="answer_6443" checked="checked" value="D" disabled="disabled">D</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">A,B,C,D</span></div>
+                                <div class="mb10">本题得分：
+                <span id="6443" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6443" href="javascript:AddFav(6443,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6443,59)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6443" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6443"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="61">60</span>
+                            <p>扫雪除冰中"红色预警"代表是（   ）预警信号。
+                            </p>
+                            </dt>
+                            <dd>
+                                A.小雪<br>B.中雪<br>C.<b>暴雪</b>
+                                <br>
+                            </dd>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                <label><input type="checkbox" name="answer_1040" value="A" disabled="disabled">A</label>
+                <label><input type="checkbox" name="answer_1040" value="B" disabled="disabled">B</label>
+                <label class="sd"><input type="checkbox" name="answer_1040" checked="checked" value="C" disabled="disabled">C</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：<span class="ft11 ftc1">C</span></div>
+                                <div class="mb10">本题得分：
+                <span id="1040" class="bx5 dis_ib">
+                1分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1040" href="javascript:AddFav(1040,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1040,60)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1040" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1040"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <div class="tit1 pd1"></div>
+                        <div class="tit1 pd1">第二题、判断题<span class="ft3">(共30题，每题0.5分，共15分)</span></div>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="62">61</span>
+                            <p>各相关设备管理单位应加强对铁路防洪基础设施和周边环境的检查、评估，积极整治度汛隐患，保障铁路抗洪能力。（    ）《西安铁路局防洪工作细则-第7条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6492" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6492" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6492" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6492" href="javascript:AddFav(6492,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6492,61)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6492" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6492"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="63">62</span>
+                            <p>干线、地区及站场的光、电缆宜敷设在预埋管道或预制电缆槽内。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1287" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1287" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1287" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1287" href="javascript:AddFav(1287,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1287,62)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1287" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1287"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="64">63</span>
+                            <p>未设驻站联络员的调度集中区段，在调度所登记的设备故障处理完毕后在相关车站销记。</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1337" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1337" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1337" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1337" href="javascript:AddFav(1337,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1337,63)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1337" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1337"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="65">64</span>
+                            <p>几个电阻串联后，其等效电阻增大。 （    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1204" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1204" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1204" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1204" href="javascript:AddFav(1204,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1204,64)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1204" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1204"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="66">65</span>
+                            <p>路局防洪指挥部职责：部署防洪工作，制定防洪有关文件、办法，开展防洪检查，审定重大防洪工程项目，做好水害抢险救灾和暴风雨天气行车组织工作。（    ）《西安铁路局防洪工作细则-第14条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6486" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6486" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6486" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6486" href="javascript:AddFav(6486,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6486,65)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6486" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6486"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="67">66</span>
+                            <p>ZPW-2000A站内电码化1700，2000载频需使用补偿电容的标称值为80μf。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1226" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1226" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1226" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1226" href="javascript:AddFav(1226,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1226,66)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1226" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1226"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="68">67</span>
+                            <p>凡是进路的始端都要设一个按钮。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1194" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1194" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1194" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1194" href="javascript:AddFav(1194,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1194,67)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1194" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1194"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="69">68</span>
+                            <p>在站内、区间作业时，不得将工具、材料等放在钢轨上和侵入限界；禁止用手指探入销子孔。  （    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1198" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1198" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1198" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1198" href="javascript:AddFav(1198,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1198,68)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1198" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1198"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="70">69</span>
+                            <p>故障（事故）处理基本原则：先恢复正线设备，后恢复侧线设备。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1344" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1344" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1344" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1344" href="javascript:AddFav(1344,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1344,69)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1344" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1344"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="71">70</span>
+                            <p>道岔应保持良好状态，道岔各零部件应齐全，作用良好，缺少时应及时补充。道岔出现伤损或病害时，应及时修理或更换。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1315" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1315" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1315" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1315" href="javascript:AddFav(1315,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1315,70)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1315" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1315"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="72">71</span>
+                            <p>自认为安全良好的情况下，可以不设好防护就开始作业。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label><input type="radio" name="answer_1365" value="Y" disabled="disabled">正确</label>
+                 <label class="sd"><input type="radio" name="answer_1365" checked="checked" value="N" disabled="disabled">错误]</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                错误
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1365" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1365" href="javascript:AddFav(1365,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1365,71)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1365" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1365"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="73">72</span>
+                            <p>相关站段应确保抢险备用车出发径路畅通，严禁将抢险备用车停放在股道停留车列内。（    ）《西安铁路局防洪工作细则-第31条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6480" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6480" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6480" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6480" href="javascript:AddFav(6480,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6480,72)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6480" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6480"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="74">73</span>
+                            <p>当基本闭塞法不能使用时，应根据列车调度员的命令采用电话闭塞法行车。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1305" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1305" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1305" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1305" href="javascript:AddFav(1305,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1305,73)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1305" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1305"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="75">74</span>
+                            <p>对纳入计划的防洪预抢工程所需资金，计财部门应优先保障。（    ）《西安铁路局防洪工作细则-第25条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6483" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6483" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6483" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6483" href="javascript:AddFav(6483,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6483,74)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6483" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6483"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="76">75</span>
+                            <p>进站、通过、接近、遮断信号机，不得小于1000m。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1326" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1326" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1326" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1326" href="javascript:AddFav(1326,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1326,75)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1326" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1326"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="77">76</span>
+                            <p>在25HZ叠加电码化轨道区段，于机车入口端用0.15Ω标准分路电阻线分路时，应满足动作机车信号的最小短路电流的要求。 (普速维规-技术标准) （    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label><input type="radio" name="answer_1348" value="Y" disabled="disabled">正确</label>
+                 <label class="sd"><input type="radio" name="answer_1348" checked="checked" value="N" disabled="disabled">错误]</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                错误
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1348" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1348" href="javascript:AddFav(1348,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1348,76)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1348" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1348"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="78">77</span>
+                            <p>电务部门应对工务、供电部门送检的防洪备用短路铜线进行性能鉴定，加贴检验标签。送检部门应提前向电务段提报送检计划。（    ）《西安铁路局防洪工作细则-第32条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6498" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6498" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6498" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6498" href="javascript:AddFav(6498,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6498,77)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6498" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6498"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="79">78</span>
+                            <p>当遇有连续强降雨天气，各地市范围内相关线路观测点3日累计面雨量达50mm以上，相关单位不必提前入汛。</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6509" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6509" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                错误
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6509" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6509" href="javascript:AddFav(6509,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6509,78)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6509" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6509"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="80">79</span>
+                            <p>当发生一、二级报警时信号微机监测系统将显示独立报警窗口，并记录报警、受理和恢复时间。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1266" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1266" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1266" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1266" href="javascript:AddFav(1266,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1266,79)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1266" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1266"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="81">80</span>
+                            <p>信号联锁是指通过技术方法，使信号、道岔和进路必须按照一定程序并满足一定条件，才能动作或建立起来的相互关系。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1237" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1237" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1237" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1237" href="javascript:AddFav(1237,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1237,80)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1237" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1237"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="82">81</span>
+                            <p>在道岔表示电路发生故障时，可采取引导进路锁闭方式引导接车。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label><input type="radio" name="answer_1259" value="Y" disabled="disabled">正确</label>
+                 <label class="sd"><input type="radio" name="answer_1259" checked="checked" value="N" disabled="disabled">错误]</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                错误
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1259" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1259" href="javascript:AddFav(1259,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1259,81)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1259" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1259"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="83">82</span>
+                            <p>各级防洪组织机构应积极组织研发或引进防洪安全监控设备，逐步提高防洪科技水平。（    ）《西安铁路局防洪工作细则-第33条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6478" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6478" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6478" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6478" href="javascript:AddFav(6478,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6478,82)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6478" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6478"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="84">83</span>
+                            <p>特种作业人员必须持有效的特种作业证上岗，严禁无证操作各种特种设备。（   ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1376" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1376" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1376" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1376" href="javascript:AddFav(1376,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1376,83)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1376" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1376"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="85">84</span>
+                            <p>各单位在组织好本单位基本抢险队伍的同时，应积极与铁路沿线施工队伍、驻军和当地人民政府联系，建立机动抢险预备队伍。（    ）《西安铁路局防洪工作细则-第24条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6501" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6501" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6501" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6501" href="javascript:AddFav(6501,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6501,84)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6501" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6501"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="86">85</span>
+                            <p>路局在调度所设立防洪调度台（以下简称"防洪台"），归局防洪办领导，负责防洪应急管理，督导防洪制度落实。（    ）《西安铁路局防洪工作细则-第11条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6504" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6504" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6504" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6504" href="javascript:AddFav(6504,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6504,85)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6504" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6504"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="87">86</span>
+                            <p>上道作业必须设置专人防护，所有上道人员必须按规定佩戴防护标识，使用防护用品。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1255" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1255" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1255" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1255" href="javascript:AddFav(1255,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1255,86)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1255" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1255"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="88">87</span>
+                            <p>严禁在轨道电路上拉临时线沟通电路造成死区间，或盲目用提高轨道电路送电端电压的方法处理故障。（电务安全规则（铁总运[2015]26号））（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1216" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1216" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1216" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1216" href="javascript:AddFav(1216,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1216,87)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1216" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1216"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="89">88</span>
+                            <p>正线上的出站信号机未开放时，进站信号机的通过信号不允许开放。  （    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_1187" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_1187" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1187" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1187" href="javascript:AddFav(1187,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1187,88)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1187" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1187"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="90">89</span>
+                            <p>高速铁路相关设备管理单位在达到限速警戒值的降雨过程结束后，应对降雨影响区段内的设备及周边环境继续进行检查确认。（    ）《西安铁路局防洪工作细则-第78条》</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label class="sd"><input type="radio" name="answer_6491" checked="checked" value="Y" disabled="disabled">[正确</label>
+                 <label><input type="radio" name="answer_6491" value="N" disabled="disabled">错误</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                正确
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="6491" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_6491" href="javascript:AddFav(6491,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(6491,89)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_6491" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_6491"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="91">90</span>
+                            <p>当道岔区段有车占用时，该区段内的道岔可以转换。（    ）</p>
+                            </dt>
+                            <dd class="dAn fc"><span class="ft4 fl">您的答案：</span>
+               <span class="fl w2 bx7">
+                 <label><input type="radio" name="answer_1276" value="Y" disabled="disabled">正确</label>
+                 <label class="sd"><input type="radio" name="answer_1276" checked="checked" value="N" disabled="disabled">错误]</label>
+                </span>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                错误
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1276" class="bx5 dis_ib">
+                0.5分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1276" href="javascript:AddFav(1276,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1276,90)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1276" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1276"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <div class="tit1 pd1"></div>
+                        <div class="tit1 pd1">第三题、填空题<span class="ft3">(共8题，每题2分，共16分)</span></div>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="92">91</span>
+                            <p>TYJL-Ⅱ型计算机联锁系统CPU板<input type="text" id="answer_1408" name="answer_1408" value="5" class="tkt">灯点亮为主用状态。</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                5
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1408" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1408" href="javascript:AddFav(1408,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1408,91)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1408" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1408"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="93">92</span>
+                            <p>四显示自动闭塞区段通过信号机一个<input type="text" id="answer_1420" name="answer_1420" value="黄色" class="tkt">灯光--要求列车减速运行，按规定限速要求越过该信号机，表示运行前方有一个闭塞分区空闲</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                黄色
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1420" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1420" href="javascript:AddFav(1420,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1420,92)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1420" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1420"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="94">93</span>
+                            <p>开口销劈开角度大于<input type="text" id="answer_1418" name="answer_1418" value="60" class="tkt">°-90，两臂劈开角度基本一致。</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                60
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1418" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1418" href="javascript:AddFav(1418,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1418,93)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1418" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1418"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="95">94</span>
+                            <p>检修整流、交流及磁饱和等电源设备时，电压高于<input type="text" id="answer_1396" name="answer_1396" value="220" class="tkt">V的设备应关闭电源，并通过人工放电，释放电容器电能后，方可开始工作。</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                220
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1396" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1396" href="javascript:AddFav(1396,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1396,94)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1396" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1396"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="96">95</span>
+                            <p>ZD6系列电动转辙机自动开闭器，动接点在静接点内的接触深度不小于<input type="text" id="answer_1415" name="answer_1415" value="4" class="tkt">mm。</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                4
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1415" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1415" href="javascript:AddFav(1415,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1415,95)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1415" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1415"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="97">96</span>
+                            <p>四显示自动闭塞区段进站色灯信号机一个黄色灯光--准许列车按限速要求经道岔<input type="text" id="answer_1402" name="answer_1402" value="直向" class="tkt">位置进入站内正线准备停车；</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                直向
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1402" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1402" href="javascript:AddFav(1402,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1402,96)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1402" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1402"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="98">97</span>
+                            <p>25HZ相敏轨道电路进行分路残压测试时，微电子接收器不应大于<input type="text" id="answer_1412" name="answer_1412" value="15" class="tkt">V。</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                10
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1412" class="bx5 dis_ib">
+                0分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1412" href="javascript:AddFav(1412,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1412,97)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1412" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1412"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="99">98</span>
+                            <p>进站、通过、接近、遮断信号机，不得小于<input type="text" id="answer_1421" name="answer_1421" value="1000" class="tkt">m；</p>
+                            </dt>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                1000
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1421" class="bx5 dis_ib">
+                2分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1421" href="javascript:AddFav(1421,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1421,98)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1421" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1421"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <div class="tit1 pd1"></div>
+                        <div class="tit1 pd1">第四题、简答题<span class="ft3">(共3题，每题3分，共9分)</span></div>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="100">99</span>
+                            <p>车站均须装设基本闭塞设备，行车基本闭塞法有哪些？</p>
+                            </dt>
+                            <dd>
+                                <div class="ft4">您的答案</div>
+                                <textarea class="jdt" readonly="readonly" name="answer_1384">自动闭塞，自动站间闭塞，半自动闭塞</textarea>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                （1）自动闭塞
+（2）自动站间闭塞
+（3）半自动闭塞
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1384" class="bx5 dis_ib">
+                3分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1384" href="javascript:AddFav(1384,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1384,99)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1384" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1384"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="101">100</span>
+                            <p>电务工作人员必须认真执行的四项基本安全制度中"三不动"的内容是什么？</p>
+                            </dt>
+                            <dd>
+                                <div class="ft4">您的答案</div>
+                                <textarea class="jdt" readonly="readonly" name="answer_1390">未联系登记好不动；对设备的性能、状态不清楚不动；正在使用的设备不动。</textarea>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                (1)未登记联系好不动；(2)对设备性能、状态不清楚不动：(3)正在使用中的设备不动。
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1390" class="bx5 dis_ib">
+                3分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1390" href="javascript:AddFav(1390,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1390,100)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1390" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1390"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="st tm_zt_0">
+                            <dt class="nobold"><span class="num" id="102">101</span>
+                            <p>ZD6系列电动转辙机的电机炭刷与换向器呈同心圆弧面接触，接触面积应不少于炭刷面的多少？炭刷长度应不少于炭刷全长的多少？（普速维规-技术标准3.2.8）</p>
+                            </dt>
+                            <dd>
+                                <div class="ft4">您的答案</div>
+                                <textarea class="jdt" readonly="readonly" name="answer_1387">接触面积不少于碳刷面的3/4；碳刷长度不少于碳刷全长的3/5。</textarea>
+                            </dd>
+                            <dd>
+                                <div class="mb10">正确答案：
+                <span class="ft11 ftc1">
+                ZD6系列电动转辙机的电机炭刷与换向器呈同心圆弧面接触，接触面积不少于炭刷面的3/4，炭刷长度不小于炭刷全长的3/5。
+                </span></div>
+                                <div class="mb10">本题得分：
+                <span id="1387" class="bx5 dis_ib">
+                3分
+                </span>
+                                    <img src="/exam/statics/images/fav.gif"><a id="fav_1387" href="javascript:AddFav(1387,1)">收藏本题</a>&nbsp;&nbsp;
+                                    <img src="/exam/statics/images/note.png"><a href="javascript:EditNote(1387,101)">编辑笔记</a>
+                                </div>
+                                <div id="shownote_1387" class="mb10" style="display:none">您的笔记：
+                                    <span style="color:#ff0000" id="note_1387"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 6px; z-index: 9999; cursor: default; position: fixed; top: 2618px; left: 1149.5px; height: 385px; opacity: 1;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 198px; background-color: rgb(110, 115, 123); border: none; background-clip: padding-box; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 999; top: 2997px; left: 1006.5px; position: absolute; cursor: default; display: none; width: 143px; opacity: 1;"><div style="position: relative; top: 0px; height: 6px; width: 149px; background-color: rgb(110, 115, 123); border: none; background-clip: padding-box; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"></div></div>
+
+
+</body></html>

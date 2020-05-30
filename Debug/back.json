@@ -1,0 +1,23 @@
+{
+  "manifest_version":2,
+  "name": "Chrome Extension for exam",
+  "version": "0.1",
+  "description": "Gets information from special page.",
+  "icons": {
+    "128": "128.png"
+  },
+  "background": {
+    "scripts":["bg.js"]
+  },
+  "content_scripts":[
+    {
+      "matches":["http://*/", "https://*/","http://localhost:63342/*","http://10.109.223.7:216/*"],
+      "js":["mycs.js"]
+    }
+  ],
+  "permissions": ["<all_urls>","storage","tabs","unlimitedStorage"],
+  "browser_action": {
+    "default_icon": "19.png"
+  }
+}
+

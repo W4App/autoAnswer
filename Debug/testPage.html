@@ -1,0 +1,1947 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>2017年第14周（3月31日18:00-4月7日18:00）普速信号工一周一练|安电职教在线考试系统 V4.3.4 - Powered By FangPage.COM</title>
+    <meta name="keywords" content="职工培训效果检验最好的在线考试系统" />
+    <meta name="description" content="在线考试系统是一款最好的免费在线考试系统。" />
+
+    <script type="text/javascript">
+        if (window.Event)
+            function nocontextmenu(e) {
+                var ev = e ? e : window.event;
+                ev.cancelBubble = true
+                ev.returnValue = false;
+                if (ev.preventDefault) {
+                    ev.preventDefault();
+                }
+                if (ev.stopPropagation) {
+                    ev.stopPropagation();
+                }
+                return false;
+            }
+        function nocopy(e) {
+            var ev = e ? e : window.event;
+            ev.cancelBubble = true
+            ev.returnValue = false;
+            if (ev.preventDefault) {
+                ev.preventDefault();
+            }
+            if (ev.stopPropagation) {
+                ev.stopPropagation();
+            }
+            return false;
+        }
+        function norightclick(e) {
+            if (window.Event) {
+                if (e.which == 2 || e.which == 3)
+                    return false;
+            }
+            else
+            if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true;
+                event.returnvalue = false;
+                return false;
+            }
+        }
+        document.oncontextmenu = nocontextmenu; // for IE5+
+        document.oncopy = nocopy;
+        document.onkeydown = function (event) //shield F5 //shift+F10 ctrl+R
+        {
+            event = event ? event : (window.event ? window.event : null); // ie firefox
+            if (event.keyCode == 116 || (event.shiftKey && event.keyCode == 121) || (event.ctrlKey && event.keyCode == 82)) {
+                event.keyCode = 0;
+                event.cancelBubble = true;
+                event.returnValue = false;
+                if (event && event.preventDefault)
+                    event.preventDefault();
+                else
+                    window.event.returnValue = false;
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var selectId = null;
+        function toSubject(id) {
+            if (null != selectId) {
+                $("#question_" + selectId).hide();
+                $("#q_" + selectId).removeClass("border_bg");
+            }
+            selectId = id;
+            $("#question_" + selectId).show();
+            $("#q_" + selectId).addClass("border_bg");
+            if ($("#q_" + selectId).hasClass("red_bg")) {
+                $("#standingby").removeClass("Undetermined");
+                $("#standingby").addClass("Undetermined-gray");
+            } else {
+                $("#standingby").addClass("Undetermined");
+                $("#standingby").removeClass("Undetermined-gray");
+            }
+        }
+        function subject_menu_hide(o, sbid) {
+            if ($('#' + sbid).css("display") == "block") {
+                $('#' + sbid).css("display", "none");
+                $(o).addClass("showorhidelist");
+            } else {
+                $('#' + sbid).css("display", "block");
+                $(o).removeClass("showorhidelist");
+            }
+        }
+        function pre_click() {
+            var num = $("#examTopicWrapId").find("li").index($("#q_" + selectId));
+            if (num > 0) {
+                $("#examTopicWrapId").find("li:eq(" + (parseInt(num) - 1) + ")").trigger("click");
+            }
+        }
+        function next_click() {
+            var num = $("#examTopicWrapId").find("li").index($("#q_" + selectId));
+            $("#examTopicWrapId").find("li:eq(" + (parseInt(num) + 1) + ")").trigger("click");
+        }
+        function pause_click() {
+            if ($("#q_" + selectId).hasClass("red_bg")) {
+                $("#q_" + selectId).removeClass("red_bg");
+                $("#standingby").addClass("Undetermined");
+                $("#standingby").removeClass("Undetermined-gray");
+            } else {
+                $("#q_" + selectId).addClass("red_bg");
+                $("#standingby").removeClass("Undetermined");
+                $("#standingby").addClass("Undetermined-gray");
+            }
+        }
+        function testScope() {
+            window.console.log("can call this ? ");
+        }
+    </script>
+</head>
+<body>
+<noscript>
+    <iframe src="*"></iframe>
+</noscript>
+<form id="testProcessForm" name="testProcessForm" action="exampost.aspx" method="post">
+    <input type="hidden" id="resultid" name="resultid" value="14001">
+    <input type="hidden" id="starttime" value="2017-04-06 19:56:31">
+    <input type="hidden" id="utime" name="utime" value="0">
+    <input type="hidden" id="autotime" value="2">
+    <input type="hidden" id="examtime" value="30">
+    <input type="hidden" id="isexam" value="1">
+    <div class="pure-g exam clf">
+        <div class="pure-u-1-5" id="examleftbar" style="min-height: 553px;">
+            <div class="topic_choose" id="topic_video">
+                <div id="getphoto_state" style="color:white;position:absolute;top:10px;left:20px;"></div>
+                <canvas id="getphoto_canvas" style="display" width="250" height="230"></canvas>
+                <video id="getphoto_video" width="250" height="230" style="background-color:black" autoplay="autoplay"></video>
+            </div>
+            <div class="topic_choose" style="height:500px;" id="topic_choose">
+                <div class="ChooseStyle">答题卡，总分：<span class="examtime">100分</span></div>
+                <div class="topic" id="examTopicWrapId">
+                    <div class="TopicType">
+                        <h3 title="第一题、不定项选择题，(共60题，每题1分，共60分)">第一题、不定项选择题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_1')">&nbsp;</span></h3>
+
+                    </div>
+                    <div class="TopicType">
+                        <h3 title="第二题、判断题，(共30题，每题0.5分，共15分)">第二题、判断题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_2')">&nbsp;</span></h3>
+
+                    </div>
+                    <div class="TopicType">
+                        <h3 title="第三题、填空题，(共8题，每题2分，共16分)">第三题、填空题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_3')">&nbsp;</span></h3>
+
+                    </div>
+                    <div class="TopicType">
+                        <h3 title="第四题、简答题，(共3题，每题3分，共9分)">第四题、简答题<span class="fr bg_img" onclick="subject_menu_hide(this,'subject_menu_4')">&nbsp;</span></h3>
+
+                    </div>
+                </div>
+                <div class="ChooseStyle"><img src="/exam/statics/images/tis.png" style="width:146px;height:11px;"></div>
+            </div>
+        </div>
+        <div class="pure-u-4-5" id="examContent" style="min-height: 553px;">
+            <div class="pure-u-1" style="height:90px;">
+                <div class="exam-top clf">
+                    <div class="user-info-b ta-l">
+                        <div class="examinee_photo bg_img"><img src="/common/images/none.gif" id="userAvatar" class="userAvatar"></div>
+                        <div class="exam_message" id="exam_message">
+                            <div><b>考试名称：</b>2017年第14周（3月31日18:00-4月7日18:00）普速信号工一周一练</div>
+                            <div><b>考生姓名：</b>吴炳安(吴炳安)</div>
+                            <div><b>身份证号：</b></div>
+                            <div><b>所在部门：</b>安康信号工区</div>
+                        </div>
+                    </div>
+                    <div class="exam_timer">剩余时间：<span id="thetime">00:24:00</span></div>
+                    <div class="menu">
+                        <div class="menutop clf">
+                            <div class="fl" id="submitexam"> <a class="bg_img round_btn upload_btn" onclick="submitExam();return false;"></a>
+                                <p>我要交卷</p>
+                            </div>
+                            <div class="fl" id="submitsave"> <a class="bg_img round_btn upload_btn" onclick="extemporeSave()"></a>
+                                <p>保存答案</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work_area" id="mainQuestionsId" style="min-height: 553px;">
+                <div class="topic_show" id="examTopicShow" style="min-height: 500px;">
+                    <input type="hidden" id="qidlist_55915" name="qidlist_55915" value="1130,888,1141,1145,1049,899,1114,920,1071,6475,1081,1039,1146,1140,1054,1007,6447,915,1129,980,1086,937,1055,1012,6465,1173,996,953,1156,921,1022,1082,990,1097,947,1162,1023,931,894,948,963,1028,932,889,904,958,1172,1098,1113,6457,1124,1038,1103,964,979,1033,905,1066,1006,1011">
+                    <div id="topic_55915" class="tit1 pd1" style="">第一题、不定项选择题<span class="ft3">(共60题，每题1分，共60分)</span></div>
+                    <dl id="question_55915_1" class="st" style="display">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>列车ff信号机灯泡的端子电压为（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.一个绿色灯光
+                            <br/>
+                            B.一个黄色灯光
+                            <br/>
+                            C.一个绿色灯光  一个黄色灯光
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_1"
+              name="answer_1130" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_1"
+              name="answer_1130" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_1"
+              name="answer_1130" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_2" class="st" style="display">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>TDCS光缆传输通道的带宽是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.1
+
+                            M<br/>B.
+
+
+                            4M
+                            <br/>C.2
+
+                            M<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_2"
+              name="answer_888" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_2"
+              name="answer_888" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_2"
+              name="answer_888" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_3" class="st" style="display">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>高柱信号机机柱的倾斜限度不超过（ ）</p>
+                        </dt>
+                        <dd>
+                            A.25m
+
+                            m<br/>B.
+
+                            10m
+
+                            m<br/>C.3
+                            6mm
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_3"
+              name="answer_1141" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_3"
+              name="answer_1141" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_3"
+              name="answer_1141" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_4" class="st" style="display">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>三灯四显示通过信号机:一个绿色灯光表示列车运行前方至少有（ ）闭塞分区空闲，准许列车按规定速度运行。（技则）</p>
+                        </dt>
+                        <dd>
+                            A.3个
+                            <br/>
+                            B.2个<br/>C.1个<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_4"
+              name="answer_1145" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_4"
+              name="answer_1145" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_4"
+              name="answer_1145" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_5" class="st">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>四显示自动闭塞区段：机车信显示（ ），要求列车注意运行，表示列车接近的地面信号机显示一个黄色灯光，并预告次一架地面信号机开放经18号及以上道岔侧向位置的进路，且列车运行前方第三架信号机开通直向进路或开放经18号及以上道岔侧向位置的进路。</p>
+                        </dt>
+                        <dd>
+                            A.一个绿色闪光
+
+
+                            <br/>B.一个
+
+
+                            带"2"字的
+                            黄色
+
+                            闪光
+                            <br/>C.一个黄色闪光<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_5"
+              name="answer_1049" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_5"
+              name="answer_1049" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_5"
+              name="answer_1049" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_6" class="st" style="display">
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>ZPW-2000A在无绝缘轨道区段，在每一个轨道区段设置一个起到平衡牵引电流的（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.空芯线圈<br/>B.匹配变压器<br/>C.调谐单元
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_6"
+
+              name="answer_899" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_6"
+              name="answer_899" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_6"
+              name="answer_899" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_7" class="st" style="display">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>高度超过1100 mm的正线信号机标准建筑限界为（ ）。（普速维规-技术标准）</p>
+                        </dt>
+                        <dd>
+                            A.1875
+                            <br/>B.2150<br/>C.2440<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_7"
+              name="answer_1114" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_7"
+              name="answer_1114" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_7"
+              name="answer_1114" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_8" class="st" style="display">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>提速道岔控制电路中的BHJ在三相电源接通时吸起（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.构通1DQJ自闭电路<br/>B.切断1DQJ励磁电路
+                            <br/>C.切断1DQJ自闭电路<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_8"
+              name="answer_920" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_8"
+              name="answer_920" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_8"
+              name="answer_920" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_9" class="st" style="display">
+                        <dt class="nobold"><span class="num">9</span>
+                        <p>施工防护的设置与撤除，由（ ）决定。</p>
+                        </dt>
+                        <dd>
+                            A.车站值班员<br/>B.施工负责人<br/>C.现场作业人员
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_9"
+              name="answer_1071" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_9"
+              name="answer_1071" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_9"
+              name="answer_1071" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_10" class="st" style="display">
+                        <dt class="nobold"><span class="num">10</span>
+                        <p>汛前防洪大检查，各单位党政正职应亲自安排部署，组织制定推进方案，确定检查项目、责任人员、时间节点和考核办法，开展（ ）防洪大检查工作。《西安铁路局防洪工作细则-第21条》</p>
+                        </dt>
+                        <dd>
+                            A.分段式
+                            <br/>B.签到式<br/>C.记名式<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_10"
+              name="answer_6475" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_10"
+              name="answer_6475" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_10"
+              name="answer_6475" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_11" class="st" style="display">
+                        <dt class="nobold"><span class="num">11</span>
+                        <p>新建工程竣工后，应按规定进行验收，并进行（ ）。改建工程竣工后，应按规定进行验收。</p>
+                        </dt>
+                        <dd>
+                            A.动态验收 <br/>B.安全评估 <br/>C.静态验收
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_11"
+              name="answer_1081" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_11"
+              name="answer_1081" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_11"
+              name="answer_1081" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_12" class="st" style="display">
+                        <dt class="nobold"><span class="num">12</span>
+                        <p>计算机系统出现故障影响正常使用时，一般采取的措施是应首先进行（ ）的应急办法，硬盘灯闪烁时不得直接关闭计算机电源。</p>
+                        </dt>
+                        <dd>
+                            A.切断总电源
+                            <br/>B.关机复位<br/>C.人工切换，必要时可采取关机复位<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_12"
+              name="answer_1039" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_12"
+              name="answer_1039" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_12"
+              name="answer_1039" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_13" class="st" style="display">
+                        <dt class="nobold"><span class="num">13</span>
+                        <p>塞钉式接续线的塞钉打入深度最少与轨腰平，露出不超过（ ）ｍｍ，塞钉与塞钉孔要全面紧密接触，并涂漆封闭。（普速维规-技术标准）</p>
+                        </dt>
+                        <dd>
+                            A.5<br/>B.10<br/>C.7
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_13"
+              name="answer_1146" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_13"
+              name="answer_1146" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_13"
+              name="answer_1146" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_14" class="st" style="display">
+                        <dt class="nobold"><span class="num">14</span>
+                        <p>高柱水泥信号机柱的埋设深度为机柱长的20%，但不得大于（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.2m
+                            <br/>B.1m<br/>C.1.5m<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_14"
+              name="answer_1140" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_14"
+              name="answer_1140" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_14"
+              name="answer_1140" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_15" class="st" style="display">
+                        <dt class="nobold"><span class="num">15</span>
+                        <p>装有转换锁闭器，电动、电液转辙机的道岔，当第一连接杆处（分动外锁闭道岔为锁闭杆处）的尖轨与基本轨间、心轨与翼轨间有（ ）及以上水平间隙时，不能锁闭或开放信号机。</p>
+                        </dt>
+                        <dd>
+                            A.10 mm<br/>B.6 mm<br/>C.4 mm
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_15"
+              name="answer_1054" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_15"
+              name="answer_1054" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_15"
+              name="answer_1054" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_16" class="st" style="display">
+                        <dt class="nobold"><span class="num">16</span>
+                        <p>"两失一违"的内容是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.违法乱纪
+                            <br/>B.违章作业<br/>C.信号设备联锁失效<br/>D.信号设备失修<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_16"
+              name="answer_1007" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_16"
+              name="answer_1007" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_16"
+              name="answer_1007" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_16"
+              name="answer_1007" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_17" class="st" style="display">
+                        <dt class="nobold"><span class="num">17</span>
+                        <p>各级人员在发现水害时，应根据对行车可能造成的影响，采取限速行车、中断行车等安全措施，限速或中断行车的水害判断依据（参照附件7）。当情况无法判明时，应本着"安全第一"的原则，宁可( )，不可盲行.《西安铁路局防洪工作细则-第52条》</p>
+                        </dt>
+                        <dd>
+                            A. 错限<br/>B.错停
+                            <br/>C. 错拦<br/>D. 错封<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_17"
+              name="answer_6447" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_17"
+              name="answer_6447" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_17"
+              name="answer_6447" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_17"
+              name="answer_6447" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_18" class="st" style="display">
+                        <dt class="nobold"><span class="num">18</span>
+                        <p>以下为进站信号机信号开放说法正确的是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.黄灯表示正线接车信号<br/>B.红灯表示进站信号处于关闭状态，严禁列车越过该信号机<br/>C.一红一白表示引导接车信号
+                            <br/>D.双黄灯表示测线接车信号<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_18"
+              name="answer_915" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_18"
+              name="answer_915" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_18"
+              name="answer_915" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_18"
+              name="answer_915" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_19" class="st" style="display">
+                        <dt class="nobold"><span class="num">19</span>
+                        <p>电缆过桥防护管、槽应涂有（ ）斑马线。</p>
+                        </dt>
+                        <dd>
+                            A.红、黑相间<br/>B.黑、白相间
+                            <br/>C.红、白相间<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_19"
+              name="answer_1129" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_19"
+              name="answer_1129" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_19"
+              name="answer_1129" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_20" class="st" style="display">
+                        <dt class="nobold"><span class="num">20</span>
+                        <p>以下属于电缆测试项目的是（ ）。（信号设备电气特性测试管理办法）</p>
+                        </dt>
+                        <dd>
+                            A.全程对地绝缘电阻 <br/>B.备用芯线线间、环阻测试
+                            <br/>C.芯线对地绝缘电阻 <br/>D.芯线间绝缘电阻 <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_20"
+              name="answer_980" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_20"
+              name="answer_980" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_20"
+              name="answer_980" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_20"
+              name="answer_980" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_21" class="st" style="display">
+                        <dt class="nobold"><span class="num">21</span>
+                        <p>进站、通过、接近、遮断信号机，不得小于（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.800m<br/>B.1000m<br/>C.500m
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_21"
+              name="answer_1086" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_21"
+              name="answer_1086" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_21"
+              name="answer_1086" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_22" class="st" style="display">
+                        <dt class="nobold"><span class="num">22</span>
+                        <p>ZPW-2000A 型无绝缘轨道电路在调整状态时，"轨出1"电压应不小于（ ） 。</p>
+                        </dt>
+                        <dd>
+                            A.320 mV
+                            <br/>B.300 mV<br/>C.240 mV<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_22"
+              name="answer_937" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_22"
+              name="answer_937" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_22"
+              name="answer_937" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_23" class="st" style="display">
+                        <dt class="nobold"><span class="num">23</span>
+                        <p>轨道电路绝缘接头的最小轨缝为（ ）mm</p>
+                        </dt>
+                        <dd>
+                            A.6<br/>B.4
+                            <br/>C.10<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_23"
+              name="answer_1055" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_23"
+              name="answer_1055" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_23"
+              name="answer_1055" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_24" class="st" style="display">
+                        <dt class="nobold"><span class="num">24</span>
+                        <p>列车运行监控装置（LKJ）具有（ ）功能。</p>
+                        </dt>
+                        <dd>
+                            A.记录<br/>B.显示<br/>C.监控<br/>D.报警
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_24"
+              name="answer_1012" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_24"
+              name="answer_1012" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_24"
+              name="answer_1012" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_24"
+              name="answer_1012" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_25" class="st" style="display">
+                        <dt class="nobold"><span class="num">25</span>
+                        <p>防洪重点地点实行（ ）管理。各相关单位应结合日常、雨中及雨后防洪隐患排查情况，对需要调整或变更的防洪重点地点，及时向主管业务处提报，在局防洪指挥部发布前应比照相应级别的防洪重点地点进行管理。《西安铁路局防洪工作细则-第26条》</p>
+                        </dt>
+                        <dd>
+                            A.实时
+                            <br/>B.静态<br/>C.动态<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_25"
+              name="answer_6465" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_25"
+              name="answer_6465" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_25"
+              name="answer_6465" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_26" class="st" style="display">
+                        <dt class="nobold"><span class="num">26</span>
+                        <p>四显示自动闭塞区段进站色灯信号机：（ ）显示，准许列车按规定速度经道岔直向位置进入或通过车站，表示运行前方至少有三个闭塞分区空闲。</p>
+                        </dt>
+                        <dd>
+                            A.一个绿色灯光和一个黄色灯光<br/>B.一个黄色灯光
+                            <br/>C.一个绿色灯光<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_26"
+              name="answer_1173" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_26"
+              name="answer_1173" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_26"
+              name="answer_1173" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_27" class="st" style="display">
+                        <dt class="nobold"><span class="num">27</span>
+                        <p>检修整流、交流及磁饱和等电源设备时，（ ），方可开始工作。</p>
+                        </dt>
+                        <dd>
+                            A.并通过人工放电，释放电容器电能后<br/>B.电压高于220V的设备应关闭电源<br/>C.接通220V电源
+                            <br/>D.开路互感器线圈<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_27"
+              name="answer_996" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_27"
+              name="answer_996" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_27"
+              name="answer_996" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_27"
+              name="answer_996" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_28" class="st" style="display">
+                        <dt class="nobold"><span class="num">28</span>
+                        <p>电缆径路图中：196-48（6）<20>的表中，196表示（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.电缆总芯数<br/>B.备用芯线数
+                            <br/>C.电缆长度<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_28"
+              name="answer_953" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_28"
+              name="answer_953" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_28"
+              name="answer_953" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_29" class="st" style="display">
+                        <dt class="nobold"><span class="num">29</span>
+                        <p>发现可疑爆炸物,以下处理方法错误的是（ ）。（反恐防暴知识）</p>
+                        </dt>
+                        <dd>
+                            A.不要触动<br/>B.及时报警
+                            <br/>C.立即搬离<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_29"
+              name="answer_1156" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_29"
+              name="answer_1156" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_29"
+              name="answer_1156" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_30" class="st" style="display">
+                        <dt class="nobold"><span class="num">30</span>
+                        <p>S700K 型电动转辙机反位向定位启动用（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.X1、X3、X4<br/>B.X1、X2、X5<br/>C.X1、X2、X4
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_30"
+              name="answer_921" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_30"
+              name="answer_921" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_30"
+              name="answer_921" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_31" class="st" style="display">
+                        <dt class="nobold"><span class="num">31</span>
+                        <p>ZPW-2000A无绝缘轨道电路中，载频与机车入口电流值对应正确的是（ ）。(维规-技术标准)</p>
+                        </dt>
+                        <dd>
+                            A.2300HZ机车入口电流500mA<br/>B.2000HZ机车入口电流500mA
+                            <br/>C.1700HZ机车入口电流450mA<br/>D.2600HZ机车入口电流450mA<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_31"
+              name="answer_1022" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_31"
+              name="answer_1022" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_31"
+              name="answer_1022" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_31"
+              name="answer_1022" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_32" class="st" style="display">
+                        <dt class="nobold"><span class="num">32</span>
+                        <p>新版《铁路技术管理规程》于（ ）起施行。</p>
+                        </dt>
+                        <dd>
+                            A.2014年11月1日<br/>B.2014年10月1日
+                            <br/>C.2014年9月1日<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_32"
+              name="answer_1082" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_32"
+              name="answer_1082" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_32"
+              name="answer_1082" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_33" class="st" style="display">
+                        <dt class="nobold"><span class="num">33</span>
+                        <p>信号联锁管理、试验人员培训合格证管理要求是（ ）。（西安铁路局信号设备联锁管理实施细则）</p>
+                        </dt>
+                        <dd>
+                            A.日常必须妥善保管，若遇丢失，应及时申请补办。 <br/>B.联锁管理、试验人员《培训合格证》分为局级、段级、车间级。 <br/>C.信号联锁管理、试验人员《培训合格证》是从事联锁工作的唯一依据，不得转借。<br/>D.信号联锁《培训合格证》实行一人一证，一证一号。
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_33"
+              name="answer_990" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_33"
+              name="answer_990" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_33"
+              name="answer_990" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_33"
+              name="answer_990" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_34" class="st" style="display">
+                        <dt class="nobold"><span class="num">34</span>
+                        <p>在进站信号机外制动距离内进站方向为超过6‰下坡道的车站，应在正线或到发线的接车方向末端设置（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.安全线
+                            <br/>B.避难线<br/>C.禁溜线<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_34"
+              name="answer_1097" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_34"
+              name="answer_1097" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_34"
+              name="answer_1097" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_35" class="st" style="display">
+                        <dt class="nobold"><span class="num">35</span>
+                        <p>透镜式色灯信号机机构内部应涂（ ）色漆。</p>
+                        </dt>
+                        <dd>
+                            A.黑<br/>B.灰
+                            <br/>C.白<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_35"
+              name="answer_947" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_35"
+              name="answer_947" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_35"
+              name="answer_947" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_36" class="st" style="display">
+                        <dt class="nobold"><span class="num">36</span>
+                        <p>采取适当的措施，使燃烧因缺乏或断绝氧气而熄灭，这种方法称作（ ）。（消防知识）</p>
+                        </dt>
+                        <dd>
+                            A.窒息灭火法	<br/>B.冷却灭火法
+                            <br/>C.隔离灭火法<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_36"
+              name="answer_1162" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_36"
+              name="answer_1162" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_36"
+              name="answer_1162" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_37" class="st" style="display">
+                        <dt class="nobold"><span class="num">37</span>
+                        <p>处理故障必须做到"三清"，"三清"内容是（ ）</p>
+                        </dt>
+                        <dd>
+                            A.原因清<br/>B.地点清<br/>C.时间清<br/>D.人员清
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_37"
+              name="answer_1023" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_37"
+              name="answer_1023" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_37"
+              name="answer_1023" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_37"
+              name="answer_1023" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_38" class="st" style="display">
+                        <dt class="nobold"><span class="num">38</span>
+                        <p>ZPW-2000A 型无绝缘移频自动闭塞是在（ ） 基础上改进而成时。</p>
+                        </dt>
+                        <dd>
+                            A.微电子
+                            <br/>B.WG-21A<br/>C.UM71<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_38"
+              name="answer_931" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_38"
+              name="answer_931" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_38"
+              name="answer_931" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_39" class="st" style="display">
+                        <dt class="nobold"><span class="num">39</span>
+                        <p>计算机联锁系统，UPS通电（ ）后，方可加负载。</p>
+                        </dt>
+                        <dd>
+                            A.10s<br/>B.20s<br/>C.30s
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_39"
+              name="answer_894" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_39"
+              name="answer_894" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_39"
+              name="answer_894" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_40" class="st" style="display">
+                        <dt class="nobold"><span class="num">40</span>
+                        <p>以下道口设备中由电务部门负责安装和维护的项目是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.道口电话等
+                            <br/>B.自动通知<br/>C.道口无线报警装置<br/>D.遮断信号<br/>E.自动信号<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_40"
+              name="answer_948" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_40"
+              name="answer_948" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_40"
+              name="answer_948" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_40"
+              name="answer_948" value="D">D</label>
+<label><input type="checkbox" id="answer_55915_40"
+              name="answer_948" value="E">E</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_41" class="st" style="display">
+                        <dt class="nobold"><span class="num">41</span>
+                        <p>联锁道岔在任何一种锁闭状态下，道岔不得启动，其锁闭状态有（ ）。（维规-技术标准）</p>
+                        </dt>
+                        <dd>
+                            A.进路锁闭<br/>B.接近锁闭
+                            <br/>C.人工锁闭<br/>D.区段锁闭<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_41"
+              name="answer_963" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_41"
+              name="answer_963" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_41"
+              name="answer_963" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_41"
+              name="answer_963" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_42" class="st" style="display">
+                        <dt class="nobold"><span class="num">42</span>
+                        <p>公共场所"保护神"有（ ）等。(反恐防暴知识)</p>
+                        </dt>
+                        <dd>
+                            A.灭火器<br/>B.报警开关<br/>C.安全出口<br/>D.消防设施
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_42"
+              name="answer_1028" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_42"
+              name="answer_1028" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_42"
+              name="answer_1028" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_42"
+              name="answer_1028" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_43" class="st" style="display">
+                        <dt class="nobold"><span class="num">43</span>
+                        <p>S700K型电动转辙机表示电路中熔断器的容量为（ ）A。</p>
+                        </dt>
+                        <dd>
+                            A.2
+                            <br/>B.1<br/>C.0.5<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_43"
+              name="answer_932" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_43"
+              name="answer_932" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_43"
+              name="answer_932" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_44" class="st" style="display">
+                        <dt class="nobold"><span class="num">44</span>
+                        <p>BD1-7、BD1-10型变压器的作用是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.变压<br/>B.隔离变压
+                            <br/>C.隔离<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_44"
+              name="answer_889" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_44"
+              name="answer_889" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_44"
+              name="answer_889" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_45" class="st" style="display">
+                        <dt class="nobold"><span class="num">45</span>
+                        <p>（ ）信号机的灯光熄灭、显示不明或显示不正确时，均视为停车信号。</p>
+                        </dt>
+                        <dd>
+                            A.出站<br/>B.进路<br/>C.进站<br/>D.通过
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_45"
+              name="answer_904" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_45"
+              name="answer_904" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_45"
+              name="answer_904" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_45"
+              name="answer_904" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_46" class="st" style="display">
+                        <dt class="nobold"><span class="num">46</span>
+                        <p>在区间敷设信号电缆时，两根电缆的连接宜采用地下接续方式。地下接续电缆应满足（ ）要求。（维规-技术标准）</p>
+                        </dt>
+                        <dd>
+                            A.在电缆径路图上应绘出电缆地下接续处所，并注明与固定参照物的十字交叉距离。
+                            <br/>B.电缆的地下接头应水平放置，接头两端各300mm内不得弯曲，并应设线槽防护，其长度应不小于1m。<br/>C.地下接续电缆时，电缆的备用量长度不小于2m。<br/>D.地下接续电缆时，应使用专用材料，按规定作业程序施工。<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_46"
+              name="answer_958" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_46"
+              name="answer_958" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_46"
+              name="answer_958" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_46"
+              name="answer_958" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_47" class="st" style="display">
+                        <dt class="nobold"><span class="num">47</span>
+                        <p>在距离接触网带电部分不足（ ）的处所作业时，接触网必须停电，由接触网工区人员安设可靠地临时接地线并验电确认后，方可开始作业。（电务安全规则（铁总运[2015]26号））</p>
+                        </dt>
+                        <dd>
+                            A.5m<br/>B.10m
+                            <br/>C.2m<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_47"
+              name="answer_1172" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_47"
+              name="answer_1172" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_47"
+              name="answer_1172" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_48" class="st" style="display">
+                        <dt class="nobold"><span class="num">48</span>
+                        <p>车站必须设进站信号机。进站信号机应设在距进站最外方道岔尖轨尖端（顺向为警冲标）不小于（ ）m的地点。</p>
+                        </dt>
+                        <dd>
+                            A.100m<br/>B.150m<br/>C.50m
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_48"
+              name="answer_1098" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_48"
+              name="answer_1098" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_48"
+              name="answer_1098" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_49" class="st" style="display">
+                        <dt class="nobold"><span class="num">49</span>
+                        <p>正常情况下380V三相交流电源每相对零线电压为（ ）V。</p>
+                        </dt>
+                        <dd>
+                            A.110
+                            <br/>B.220<br/>C.380<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_49"
+              name="answer_1113" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_49"
+              name="answer_1113" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_49"
+              name="answer_1113" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_50" class="st" style="display">
+                        <dt class="nobold"><span class="num">50</span>
+                        <p>汛期每日（ ）前报局防洪指挥部邮箱，如果当日夜间有相关信息的，应在次日6时前补报。防洪指挥部成员部门和各运输站段应指定专人负责信息上报工作。《西安铁路局防洪工作细则-第42条》</p>
+                        </dt>
+                        <dd>
+                            A. 12时<br/>B. 20时
+                            <br/>C. 18时<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_50"
+              name="answer_6457" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_50"
+              name="answer_6457" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_50"
+              name="answer_6457" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_51" class="st" style="display">
+                        <dt class="nobold"><span class="num">51</span>
+                        <p>道岔动作杆的销孔旷量应不大于（ ）。（普速维规-技术标准）</p>
+                        </dt>
+                        <dd>
+                            A.0.
+                            5mm<br/>B.0.3mm<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_51"
+              name="answer_1124" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_51"
+              name="answer_1124" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_51"
+              name="answer_1124" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_52" class="st" style="display">
+                        <dt class="nobold"><span class="num">52</span>
+                        <p>闭塞机停电后恢复送电时，列车到达因轨道电路故障不能办理到达复原时，列车发车后因故退回原发车站需办理区间复原时，可使用（ ）按钮进行复原。</p>
+                        </dt>
+                        <dd>
+                            A.复原
+                            <br/>B.事故<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_52"
+              name="answer_1038" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_52"
+              name="answer_1038" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_52"
+              name="answer_1038" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_53" class="st" style="display">
+                        <dt class="nobold"><span class="num">53</span>
+                        <p>对设有加锁加封的信号设备，应加锁加封，必要时可设置（ ），使用人员应负责其完整。</p>
+                        </dt>
+                        <dd>
+                            A.计数器<br/>B.加锁器
+                            <br/>C.显示器<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_53"
+              name="answer_1103" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_53"
+              name="answer_1103" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_53"
+              name="answer_1103" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_54" class="st" style="display">
+                        <dt class="nobold"><span class="num">54</span>
+                        <p>电务（通信）段应建设段、车间、工区三级安全生产体系，建立健全作业过程"三控"机制，完善监控手段，强化现场作业控制，请问内容是（ ）。（电务安全规则（铁总运[2015]26号））</p>
+                        </dt>
+                        <dd>
+                            A.互控<br/>B.他控<br/>C.自控<br/>D.视频监控
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_54"
+              name="answer_964" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_54"
+              name="answer_964" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_54"
+              name="answer_964" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_54"
+              name="answer_964" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_55" class="st" style="display">
+                        <dt class="nobold"><span class="num">55</span>
+                        <p>五线制道岔控制电路中，描述正确的是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.反位表示用X1、X3、X5
+                            <br/>B.定位表示用X1、X2、X4<br/>C.定位向反位启动用X1、X3、X4 <br/>D.反位向定位启动用X1、X2、X5<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_55"
+              name="answer_979" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_55"
+              name="answer_979" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_55"
+              name="answer_979" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_55"
+              name="answer_979" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_56" class="st" style="display">
+                        <dt class="nobold"><span class="num">56</span>
+                        <p>手摇把的使用：使用后，要及时收回、销记，由车务、电务双方清点数量、核对编号、共同加锁（加封）。无信号工的车站，电务人员需在（ ）h内完成本项工作。</p>
+                        </dt>
+                        <dd>
+                            A.72<br/>B.24
+                            <br/>C.12<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_56"
+              name="answer_1033" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_56"
+              name="answer_1033" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_56"
+              name="answer_1033" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_57" class="st" style="display">
+                        <dt class="nobold"><span class="num">57</span>
+                        <p>集中联锁车站的（ ）信号机，通过信号机，当机车或车辆第一轮对越过该信号机后自动关闭。</p>
+                        </dt>
+                        <dd>
+                            A.调车<br/>B.出站<br/>C.进站<br/>D.进路
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_57"
+              name="answer_905" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_57"
+              name="answer_905" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_57"
+              name="answer_905" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_57"
+              name="answer_905" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_58" class="st" style="display">
+                        <dt class="nobold"><span class="num">58</span>
+                        <p>CTCS-2级列控系统完全监控模式下按高于线路允许速度（ ）紧急制动设置模式曲线。</p>
+                        </dt>
+                        <dd>
+                            A.1
+                            0
+                            <br/>B.2<br/>C.5<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_58"
+              name="answer_1066" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_58"
+              name="answer_1066" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_58"
+              name="answer_1066" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_59" class="st" style="display">
+                        <dt class="nobold"><span class="num">59</span>
+                        <p>危及信号安全工作的"三害"是（ ）。</p>
+                        </dt>
+                        <dd>
+                            A.违
+                            章<br/>B.蛮
+                            干<br/>C.违纪
+                            <br/>D.抢点<br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_59"
+              name="answer_1006" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_59"
+              name="answer_1006" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_59"
+              name="answer_1006" value="C">C</label>
+<label><input type="checkbox" id="answer_55915_59"
+              name="answer_1006" value="D">D</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55915_60" class="st" style="display">
+                        <dt class="nobold"><span class="num">60</span>
+                        <p>电缆埋设深度，区间一般不少于（ ） 。</p>
+                        </dt>
+                        <dd>
+                            A.1200mm<br/>B.7
+                            00mm<br/>C.600mm
+                            <br/>
+                        </dd>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="checkbox" id="answer_55915_60"
+              name="answer_1011" value="A">A</label>
+<label><input type="checkbox" id="answer_55915_60"
+              name="answer_1011" value="B">B</label>
+<label><input type="checkbox" id="answer_55915_60"
+              name="answer_1011" value="C">C</label>
+</span>
+                        </dd>
+                    </dl>
+                    <input type="hidden" id="qidlist_55916" name="qidlist_55916" value="1247,1297,6478,1365,1215,1186,1237,1304,1376,6502,1293,1315,1214,1265,6503,1204,1254,1226,6497,1343,1336,6491,1326,1276,1182,1354,1375,1286,1233,1243">
+                    <div id="topic_55916" class="tit1 pd1" style="display">第二题、判断题<span class="ft3">(共30题，每题0.5分，共15分)</span></div>
+                    <dl id="question_55916_1" class="st" style="display">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>冬季室外作业时，所戴防寒帽应有耳孔，作业时耳孔必须外漏。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_1" name="answer_1247" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_1" name="answer_1247" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_2" class="st" style="display">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>影响设备使用的检修可以临时要点进行。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_2" name="answer_1297" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_2" name="answer_1297" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_3" class="st" style="display">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>各级防洪组织机构应积极组织研发或引进防洪安全监控设备，逐步提高防洪科技水平。（ ）《西安铁路局防洪工作细则-第33条》</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_3" name="answer_6478" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_3" name="answer_6478" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_4" class="st" style="display">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>自认为安全良好的情况下，可以不设好防护就开始作业。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_4" name="answer_1365" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_4" name="answer_1365" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_5" class="st" style="display">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>严禁采用封连线或其他手段封连各种信号设备电气接点。（电务安全规则（铁总运[2015]26号））（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_5" name="answer_1215" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_5" name="answer_1215" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_6" class="st" >
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>色灯信号机有高柱信号机和矮型信号机之分。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_6" name="answer_1186" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_6" name="answer_1186" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_7" class="st">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>信号联锁是指通过技术方法，使信号、道岔和进路必须按照一定程序并满足一定条件，才能动作或建立起来的相互关系。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_7" name="answer_1237" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_7" name="answer_1237" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_8" class="st" style="display">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>通过信号机应设在闭塞分区或所间区间的分界处。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_8" name="answer_1304" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_8" name="answer_1304" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_9" class="st" style="display">
+                        <dt class="nobold"><span class="num">9</span>
+                        <p>特种作业人员必须持有效的特种作业证上岗，严禁无证操作各种特种设备。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_9" name="answer_1376" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_9" name="answer_1376" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_10" class="st" style="display">
+                        <dt class="nobold"><span class="num">10</span>
+                        <p>各单位应对发现的度汛安全隐患建立防洪隐患库，制定整治计划、保安措施，并结合日常检查动态更新。（ ）《西安铁路局防洪工作细则-第23条》</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_10" name="answer_6502" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_10" name="answer_6502" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_11" class="st" style="display">
+                        <dt class="nobold"><span class="num">11</span>
+                        <p>在夜间或遇降雾、暴风雨雪，为消除线路故障或执行特殊任务，开行轻型车辆时应用电话闭塞法行车。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_11" name="answer_1293" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_11" name="answer_1293" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_12" class="st" style="display">
+                        <dt class="nobold"><span class="num">12</span>
+                        <p>道岔应保持良好状态，道岔各零部件应齐全，作用良好，缺少时应及时补充。道岔出现伤损或病害时，应及时修理或更换。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_12" name="answer_1315" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_12" name="answer_1315" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_13" class="st" style="display">
+                        <dt class="nobold"><span class="num">13</span>
+                        <p>严禁甩开联锁条件，借用电源动作设备。（电务安全规则（铁总运[2015]26号））（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_13" name="answer_1214" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_13" name="answer_1214" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_14" class="st" style="display">
+                        <dt class="nobold"><span class="num">14</span>
+                        <p>色灯进站信号机红灯灭灯后仍可以开放允许信号。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_14" name="answer_1265" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_14" name="answer_1265" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_15" class="st" style="display">
+                        <dt class="nobold"><span class="num">15</span>
+                        <p>各单位防洪办负责管理防洪资料，指导车间、工区建立健全防洪管理台帐。（ ）《西安铁路局防洪工作细则-第18条》</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_15" name="answer_6503" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_15" name="answer_6503" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_16" class="st" style="display">
+                        <dt class="nobold"><span class="num">16</span>
+                        <p>几个电阻串联后，其等效电阻增大。 （ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_16" name="answer_1204" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_16" name="answer_1204" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_17" class="st" style="display">
+                        <dt class="nobold"><span class="num">17</span>
+                        <p>1DQJ继电器1-2线圈电路与电动机串联起检查作用。 （ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_17" name="answer_1254" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_17" name="answer_1254" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_18" class="st" style="display">
+                        <dt class="nobold"><span class="num">18</span>
+                        <p>ZPW-2000A站内电码化1700，2000载频需使用补偿电容的标称值为80μf。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_18" name="answer_1226" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_18" name="answer_1226" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_19" class="st" style="display">
+                        <dt class="nobold"><span class="num">19</span>
+                        <p>各级防洪值班人员负责抽查下一级单位的防洪值班情况，做好防洪信息的传递；（ ）《西安铁路局防洪工作细则-第39条》</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_19" name="answer_6497" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_19" name="answer_6497" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_20" class="st" style="display">
+                        <dt class="nobold"><span class="num">20</span>
+                        <p>列车调度指挥系统（TDCS）和调度集中系统（CTC）区段，车站应采用集中联锁。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_20" name="answer_1343" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_20" name="answer_1343" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_21" class="st" style="display">
+                        <dt class="nobold"><span class="num">21</span>
+                        <p>转为计轴加轨道电路方式时，计轴设备完成对区间轨道区段空闲、占用检查，轨道电路只完成机车信号传输，不检查钢轨断轨、异物占用。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_21" name="answer_1336" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_21" name="answer_1336" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_22" class="st" style="display">
+                        <dt class="nobold"><span class="num">22</span>
+                        <p>高速铁路相关设备管理单位在达到限速警戒值的降雨过程结束后，应对降雨影响区段内的设备及周边环境继续进行检查确认。（ ）《西安铁路局防洪工作细则-第78条》</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_22" name="answer_6491" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_22" name="answer_6491" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_23" class="st" style="display">
+                        <dt class="nobold"><span class="num">23</span>
+                        <p>进站、通过、接近、遮断信号机，不得小于1000m。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_23" name="answer_1326" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_23" name="answer_1326" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_24" class="st" style="display">
+                        <dt class="nobold"><span class="num">24</span>
+                        <p>当道岔区段有车占用时，该区段内的道岔可以转换。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_24" name="answer_1276" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_24" name="answer_1276" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_25" class="st" style="display">
+                        <dt class="nobold"><span class="num">25</span>
+                        <p>道岔编号的顺序为上行咽喉道岔用单数由外向里编号，下行咽喉道岔用双数由外向里编号。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_25" name="answer_1182" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_25" name="answer_1182" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_26" class="st" style="display">
+                        <dt class="nobold"><span class="num">26</span>
+                        <p>新设备（包括改造后的设备）投入使用前须有操作规程、竣工图纸等技术文件和保证安全生产的办法与管理细则，经过技术测验合格并对有关人员进行培训后，方可使用。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_26" name="answer_1354" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_26" name="answer_1354" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_27" class="st" style="display">
+                        <dt class="nobold"><span class="num">27</span>
+                        <p>下地沟检查设备或车下作业时，必须在机车两端悬挂防护红旗，夜间在机车两端悬挂防护警示红灯，同时在机车闸把处悬挂红色"禁止操纵牌"。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_27" name="answer_1375" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_27" name="answer_1375" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_28" class="st" style="display">
+                        <dt class="nobold"><span class="num">28</span>
+                        <p>驼峰溜放车组速度控制调速制式可采用点式、点连式、连续式。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_28" name="answer_1286" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_28" name="answer_1286" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_29" class="st" style="display">
+                        <dt class="nobold"><span class="num">29</span>
+                        <p>贯通地线与信号电缆同沟埋设于电缆（槽） 下方土壤中，距电缆（槽）底部不少于300mm。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_29" name="answer_1233" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_29" name="answer_1233" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <dl id="question_55916_30" class="st" style="display">
+                        <dt class="nobold"><span class="num">30</span>
+                        <p>未按规定设好防护，防护员未到位，作业人员有权拒绝上道。（ ）</p>
+                        </dt>
+                        <dd class="dAn fc">
+                            <span class="ft4 fl">选择答案：</span>
+<span class="fl w2 bx7">
+<label><input type="radio" id="answer_55916_30" name="answer_1243" value="Y">正确</label>
+<label><input type="radio" id="answer_55916_30" name="answer_1243" value="N">错误</label>
+</span>
+                        </dd>
+                    </dl>
+                    <input type="hidden" id="qidlist_55917" name="qidlist_55917" value="1421,1407,1412,1413,1418,1415,1401,1425">
+                    <div id="topic_55917" class="tit1 pd1" style="display">第三题、填空题<span class="ft3">(共8题，每题2分，共16分)</span></div>
+                    <dl id="question_55917_1" class="st" style="display">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>进站、通过、接近、遮断信号机，不得小于<input type="text" id="_1" name="answer_1421" value="" class="tkt"/>m；</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_2" class="st" style="display">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>ZPW-2000A型无绝缘轨道电路由主轨道电路和<input type="text" id="_2" name="answer_1407" value="" class="tkt"/>电路两个部分组成。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_3" class="st" style="display">
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>25HZ相敏轨道电路进行分路残压测试时，微电子接收器不应大于<input type="text" id="_3" name="answer_1412" value="" class="tkt"/>V。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_4" class="st">
+                        <dt class="nobold"><span class="num">4</span>
+                        <p>装有钢轨绝缘处的轨缝应保持在6～10mm，两轨端头部保持水平，高低相差不大于<input type="text" id="_4" name="answer_1413" value="" class="tkt"/>mm。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_5" class="st" style="display">
+                        <dt class="nobold"><span class="num">5</span>
+                        <p>开口销劈开角度大于<input type="text" id="_5" name="answer_1418" value="" class="tkt"/>°-90，两臂劈开角度基本一致。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_6" class="st" style="display">
+                        <dt class="nobold"><span class="num">6</span>
+                        <p>ZD6系列电动转辙机自动开闭器，动接点在静接点内的接触深度不小于<input type="text" id="_6" name="answer_1415" value="" class="tkt"/>mm。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_7" class="st" style="display">
+                        <dt class="nobold"><span class="num">7</span>
+                        <p>25HZ相敏轨道电路轨道圈电压与局部电压理想相位角为<input type="text" id="_7" name="answer_1401" value="" class="tkt"/>°。</p>
+                        </dt>
+                    </dl>
+                    <dl id="question_55917_8" class="st" style="display">
+                        <dt class="nobold"><span class="num">8</span>
+                        <p>不对称高压脉冲轨道电路分路残压测试使用0.15Ω标准分路线在轨面送、受电端及最不利处可靠分路时，轨道继电器（一送多受时其中任一分支的轨道继电器）头部电压不大于13.5V，尾部不大于<input type="text" id="_8" name="answer_1425" value="" class="tkt"/>V，继电器可靠落下。</p>
+                        </dt>
+                    </dl>
+                    <input type="hidden" id="qidlist_55918" name="qidlist_55918" value="1395,1392,1389">
+                    <div id="topic_55918" class="tit1 pd1" style="display">第四题、简答题<span class="ft3">(共3题，每题3分，共9分)</span></div>
+                    <dl id="question_55918_1" class="st" style="display">
+                        <dt class="nobold"><span class="num">1</span>
+                        <p>ZPW-2000A无绝缘自动闭塞系统室内设备由哪些部分构成？</p>
+                        </dt>
+                        <dd>
+                            <div class="ft4">填写答案</div>
+                            <textarea class="jdt" rows="5" id="answer_55918_1" name="answer_1395"></textarea>
+                        </dd>
+                    </dl>
+                    <dl id="question_55918_2" class="st" style="display">
+                        <dt class="nobold"><span class="num">2</span>
+                        <p>电务工作人员必须认真执行的四项基本安全制度中"三不放过"的内容是什么？</p>
+                        </dt>
+                        <dd>
+                            <div class="ft4">填写答案</div>
+                            <textarea class="jdt" rows="5" id="answer_55918_2" name="answer_1392"></textarea>
+                        </dd>
+                    </dl>
+                    <dl id="question_55918_3" class="st" >
+                        <dt class="nobold"><span class="num">3</span>
+                        <p>ZD6系列电动转辙机单机牵引道岔控制电路中的保险容量有何规定?</p>
+                        </dt>
+                        <dd>
+                            <div class="ft4">填写答案</div>
+                            <textarea class="jdt" rows="5" id="answer_55918_3" name="answer_1389"></textarea>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="fixDivBtm">
+                    <div id="dragBar"><span></span><em></em></div>
+                    <div class="show_choose clf tal-c">
+                        <span class="show_btn bg_img fl LastTopic" id="prevQuestion" onclick="pre_click();"></span>
+                        <span class="show_btn bg_img fl NextTopic" id="nextQuestion" onclick="next_click();"></span>
+                        <span class="show_btn bg_img fl Undetermined" id="standingby" onclick="pause_click();"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    function nice() {
+        $(window).trigger("resize");
+        window.niceObj = $(".topic_choose").niceScroll({ cursorcolor: "#6E737B", cursoropacitymin: 1, cursorwidth: "6px", cursorborder: "none", cursorborderradius: "4px" });
+    }
+    $(function () {
+//$(window).resize(function () {
+// var height = $(window).height();
+// //$("#examleftbar").height(height - 90);
+// $("#examContent").height(height - 90);
+//});
+        nice();
+        $(document).ready(function () {
+            var ipt = $("label input");
+            ipt.parent().removeClass("sd");
+            ipt.filter(":checked").parent().addClass("sd");
+            ipt.each(function () {
+                var fkid = $(this).attr("id").replace("answer_", "");
+                var ids = new Array();
+                $("input[id='answer_" + fkid + "']").each(function () {
+                    if ($(this).attr('checked'))
+                        ids.push($(this).val());
+                });
+                if (ids.length > 0) {
+                    if ($("#q_" + fkid).hasClass("green_bg ") == false) {
+                        $("#q_" + fkid).addClass("green_bg ");
+                    }
+                } else {
+                    $("#q_" + fkid).removeClass("green_bg ");
+                }
+            });
+            $("#examTopicWrapId").find("li:first").trigger("click");
+        });
+    });
+</script>
+<script>
+
+</script>
+</body>
+</html>
