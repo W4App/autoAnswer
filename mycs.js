@@ -5,41 +5,7 @@
 var csStku = {};
 var BGoldKu = {}; //历史版本
 var Number_skip = [];
-//生成随机的排序无重复序列...
-// function get_skip_number()
-// {
-//   let arr = [];
-//   let result = [];
-//   for (let iRnd = 0; iRnd < 4; iRnd++)
-//   {
-//     arr.push(Math.floor(Math.random() * 90) + 1);
-//   }
-//   arr.sort(function(a, b)
-//   {
-//     if (a == b)
-//     {
-//       return 0;
-//     }
-//     if (a > b)
-//     {
-//       return 1;
-//     } else
-//     {
-//       return -1;
-//     }
-//   });
-//   let obj = {};
-//   //利用js中,属性不能重复来去重! 这是个高效方法
-//   for (let i in arr)
-//   {
-//     if (obj.hasOwnProperty(arr[i]) === false)
-//     {
-//       result.push(arr[i]);
-//       obj[arr[i]] = 1;
-//     }
-//   }
-//   return result;
-// }
+
 function itemCount(obj) {
     var cnt = 0;
     for (var ic in obj) {
@@ -108,35 +74,6 @@ function daFormt(pageStr, daStr)  //修改显示! 这个函数要重写(因为�
     return strArr.join('<br>');
 }
 
-// function getAnswersObj(htmlStr, eleInput)  //htmlStr ==string ; eleInput = ele_colection
-// {
-//   //函数:把html的黑体去掉,用<br>切割. 形成数组, 去掉空格,返回答案字符串.(无空格换行)
-//   var tmpAnswers = {};
-//   var t = htmlStr.replace(/<b>/g, '').
-//       replace(/<\/b>/g, '').
-//       replace(/\s/g, '').
-//       replace(/\n/g, '');
-//   var arr = t.split('<br>');
-//   for (var x = 0; x < arr.length; x++)
-//   {
-//     arr[x] = arr[x].replace(/<b>/g, '').replace(/<\/b>/g, '');
-//     arr[x] = arr[x].trim();
-//   }
-//   arr.pop(); //去掉切割后产生的空字符数组. 删除尾部有害元
-//   var daCnt = 0;
-//   for (var y = 0; y < eleInput.length; y++)
-//   {
-//     if (eleInput[y].checked == true)
-//     {
-//       daCnt++;
-//       var alpha = eleInput[y].value;
-//       tmpAnswers[alpha] = arr[Answers[alpha]].slice(2); // 有点绕, 用枚举找出序号, 引用数组项, 剪裁下.
-//     }
-//   }
-//   tmpAnswers['Da'] = daCnt;
-//   tmpAnswers['An'] = 0;
-//   return tmpAnswers;
-// }
 function getOkAnswersObj(htmlStr, alphaArr)  //htmlStr ==string ; eleInput = alpha Arr
 {
     //函数:把html的黑体去掉,用<br>切割. 形成数组, 去掉空格,返回!
@@ -280,18 +217,18 @@ function rwPage() {
             if (csStku.hasOwnProperty(pdtm)) {
                 if (csStku[pdtm] !== 'unKnown')  //题存在且有答案, 显示... 特殊格式
                 {
-                   // pdLabel[0].lastChild.nodeValue = '正确';
-                   // pdLabel[1].lastChild.nodeValue = '错误';
+                    // pdLabel[0].lastChild.nodeValue = '正确';
+                    // pdLabel[1].lastChild.nodeValue = '错误';
                     switch (csStku[pdtm]) {
                         //修改外观  但是并未选定..
                         case 'Y':
                             pdLabel[0].lastChild.nodeValue = '`正确';
-                            pdtEle.item(0).checked=true;
-                           // pdtEle[0].checked = true;
+                            pdtEle.item(0).checked = true;
+                            // pdtEle[0].checked = true;
                             break;
                         case 'N':
                             pdLabel[1].lastChild.nodeValue = '错误`';
-                            pdtEle.item(1).checked=true;
+                            pdtEle.item(1).checked = true;
                             //pdtEle[1].checked = true;
                             break;
                     }
@@ -371,12 +308,6 @@ function rwPage() {
 // 开始处理....
 if (document.getElementsByClassName('st').length > 10) {
     var csPort = chrome.extension.connect({name: 'csPt'});
-    //初始去重的排序序列...
-    // Number_skip = get_skip_number();
-    Number_skip = [-1, -1, -1, -1];
-    if (window.document.querySelector('body').innerText.match(/吴炳安/) !== null) {
-        Number_skip = [-1, -1, -1, -1];
-    }
     csPort.postMessage({verb: 'yesDoIt'});
     csPort.onMessage.addListener(function (msg) {
         if (msg.oldKu) {
@@ -420,31 +351,7 @@ if (document.getElementsByClassName('st').length > 10) {
                 }
             }, 1000 * 60 * 15);
         }
-        // if (msg.CMD == 'doFresh') //来自菜单的消息.执行刷新任务
-        // {
-        //   //console.log("***FRESH & UPDATE***");
-        //   if (csStku['FLAG'] == 'OLD') //检查历史库标志决定更新, 至少保证是历史库的增量版本.
-        //   {
-        //     if (jxFlag())
-        //     {
-        //       Dajx()
-        //     }
-        //     else
-        //     {
-        //       rwPage()
-        //     }
-        //     (function ()
-        //     {
-        //       var tmp = getChg(csStku, BGoldKu)
-        //       csPort.postMessage({upSt: JSON.stringify(tmp)})
-        //       console.log('<' + itemCount(tmp) + '> items Updated to background library ')
-        //     }())
-        //
-        //   }
-        // }
-        // if (msg.who) {
-        // person_list = JSON.parse(msg.who)
-        // }
+
     });
 }
 

@@ -53,22 +53,7 @@ chrome.extension.onConnect.addListener(function (port) {
         //console.log(upPart);
       }
     })
-    //消息能嵌套吗?  可以~
-    //这个菜单监听器,嵌套在port的监听器里面.
 
-    // chrome.browserAction.onClicked.addListener(function (tab) {
-    //      testScope();
-    //      if (portCon == true) {
-    //          console.log("***manFresh***");
-    //          try {
-    //              port.postMessage({CMD: 'doFresh'});
-    //          }
-    //          catch (err) {
-    //              //console.log(err);
-    //          }
-    //      }
-    //
-    //  });
   }
 });
 
